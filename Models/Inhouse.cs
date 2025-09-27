@@ -20,7 +20,7 @@ namespace Harmoni.Models
         public Member Destination { get; set; }
 
         public decimal Amount { get; set; }
-
+        
         public decimal Fee { get; set; }
 
         public string Remarks { get; set; }
