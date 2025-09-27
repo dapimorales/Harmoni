@@ -22,9 +22,12 @@
 
   <ItemGroup>
     <Folder Include="Forms\" />
-    <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="Utility\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Hp\Downloads\Installment.png" Link="Installment.png" />
   </ItemGroup>
 
 </Project>
