@@ -9,8 +9,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Harmoni.Models
 {
-    internal class Member
+    public class Member
     {
+        public int Id { get; set; }
         public int Id { get; set; }
 
         [Required, MaxLength(100)] public string Username { get; set; }
@@ -27,9 +28,10 @@ public string MemberId { get; set; }
 
     public string IdCard { get; set; }
 
-    public string Phone(get; set; }
+    public string Phone {get; set; }
 
-public string Email(get; set; ) public string Address { get; set; }
+public string Email {get; set; }
+ public string Address { get; set; }
 
 public string PhoneAlt { get; set; }
 
@@ -44,12 +46,12 @@ public string level { get; set; }
 [Required, MaxLength(100)]
 public string quest1
 {
-    get; set; )= null; [Required, MaxLength(100)]
+    get; set; = null; [Required, MaxLength(100)]
     public string quest2 { get; set; } = null;
 
 public ICollection Loan Loans(get; set;) new List<Loan>(); public Collection Access Accesses {get; set; } new List<Access>(); public Collection Saving Savings(get; set;) new List<Saving>();
 
-public ICollection Inhouse OriginTransactions(get; set; } public ICollection Inhouse Destination Transactions { get; set; }
+public ICollection Inhouse OriginTransactions {get; set;} public ICollection Inhouse Destination Transactions { get; set; }
 
 public ICollection Exchange Exchanges { get; set; }
     }
