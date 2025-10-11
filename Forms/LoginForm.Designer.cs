@@ -66,7 +66,6 @@
             btnSubmit.TabIndex = 2;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
-            btnSubmit.Click += this.btnSubmit_Click;
             // 
             // btnRegis
             // 
