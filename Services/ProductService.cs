@@ -1,4 +1,5 @@
-﻿using Harmoni.Models;
+﻿using Harmoni.Data;
+using Harmoni.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
