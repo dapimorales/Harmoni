@@ -140,7 +140,6 @@
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(260, 23);
             cmbStatus.TabIndex = 9;
-            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
             // btnUpdate
             // 
@@ -150,7 +149,7 @@
             btnUpdate.TabIndex = 10;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += button1_Click;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // lblMemberId
             // 
@@ -160,7 +159,6 @@
             lblMemberId.Size = new Size(16, 15);
             lblMemberId.TabIndex = 11;
             lblMemberId.Text = "...";
-            lblMemberId.Click += lblMemberId_Click;
             // 
             // lblCardId
             // 
@@ -241,6 +239,7 @@
             dataGridViewMember.Name = "dataGridViewMember";
             dataGridViewMember.Size = new Size(511, 427);
             dataGridViewMember.TabIndex = 20;
+            dataGridViewMember.CellContentClick += dataGridViewMember_CellContentClick;
             // 
             // MemberPage
             // 
@@ -269,6 +268,7 @@
             Controls.Add(label1);
             Name = "MemberPage";
             Size = new Size(854, 481);
+            Load += MemberPage_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewMember).EndInit();
             ResumeLayout(false);
             PerformLayout();

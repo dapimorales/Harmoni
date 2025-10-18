@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Harmoni.Models
 {
-    internal class Inhouse
+    public class Inhouse
     {
         public int Id { get; set; }
 

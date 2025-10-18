@@ -50,6 +50,7 @@
             cmbProduct.Name = "cmbProduct";
             cmbProduct.Size = new Size(198, 23);
             cmbProduct.TabIndex = 1;
+            cmbProduct.SelectedIndexChanged += cmbProduct_SelectedIndexChanged;
             // 
             // dataGridViewApproval
             // 
@@ -58,6 +59,7 @@
             dataGridViewApproval.Name = "dataGridViewApproval";
             dataGridViewApproval.Size = new Size(918, 165);
             dataGridViewApproval.TabIndex = 2;
+            dataGridViewApproval.CellContentClick += dataGridViewApproval_CellContentClick;
             // 
             // ApprovalPage
             // 
@@ -68,6 +70,7 @@
             Controls.Add(label1);
             Name = "ApprovalPage";
             Size = new Size(969, 269);
+            Load += ApprovalPage_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewApproval).EndInit();
             ResumeLayout(false);
             PerformLayout();

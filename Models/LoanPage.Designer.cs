@@ -83,13 +83,14 @@
             txtLoanID.Name = "txtLoanID";
             txtLoanID.Size = new Size(193, 23);
             txtLoanID.TabIndex = 1;
+            txtLoanID.TextChanged += txtLoanID_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(40, 91);
             label2.Name = "label2";
-            label2.Size = new Size(60, 15);
+            label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
             label2.Text = "Loan Type";
             // 
@@ -123,7 +124,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(279, 197);
             label5.Name = "label5";
-            label5.Size = new Size(77, 15);
+            label5.Size = new Size(76, 15);
             label5.TabIndex = 9;
             label5.Text = "Max Amount";
             // 
@@ -150,7 +151,7 @@
             label8.AutoSize = true;
             label8.Location = new Point(279, 143);
             label8.Name = "label8";
-            label8.Size = new Size(36, 15);
+            label8.Size = new Size(37, 15);
             label8.TabIndex = 12;
             label8.Text = "Tenor";
             // 
@@ -159,7 +160,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(279, 252);
             label9.Name = "label9";
-            label9.Size = new Size(86, 15);
+            label9.Size = new Size(87, 15);
             label9.TabIndex = 13;
             label9.Text = "Document KTP";
             label9.Click += label9_Click;

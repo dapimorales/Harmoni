@@ -13,6 +13,7 @@ namespace Harmoni.Models
     public partial class LoanPage : UserControl
     {
         public LoanPage()
+
         {
             InitializeComponent();
         }
@@ -33,6 +34,11 @@ namespace Harmoni.Models
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLoanID_TextChanged(object sender, EventArgs e)
         {
 
         }
