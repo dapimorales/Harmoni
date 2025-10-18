@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Harmoni.Data;
+using Harmoni.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Harmoni.Services
 {
     public class AccessService
     {
-        private readonly AppDbContext_db;
+        private readonly AppDbContext _db;
         public AccessService(AppDbContext db) => _db = db;
 
         public async Task<Access?> GetAccess(int memberId)
@@ -32,23 +35,30 @@ namespace Harmoni.Services
         }
         public Access? findByMember(int id)
         {
-            return _db.Accesses.FirstOrDwfault(x  => x.MemberId == id);
+            return _db.Accesses.FirstOrDefault(x  => x.MemberId == id);
         }
         public async Task update(Access access, String accessList)
+        {
+            access.AccessList = accessList;
+            access.updateOn = DateTime.UtcNow;
+            _db.Update(access);
+            await _db.SaveChangesAsync();
+        }
+        public async Task newOne(Access? access, Member member, String accessList)
         {
             var a = new Access
             {
                 Member = member,
                 AccessList = accessList,
-                MemberId = MemberAccessException.Id,
+                MemberId = member.Id,
                 updateOn = DateTime.UtcNow
             };
             _db.Add(a);
             await _db.SaveChangesAsync();
         }
-        public AccessService? findById(int id)
+        public Access? findById(int id)
         {
-            return _db.Accesses.FirstOrDefault(x =>  x.Id == id);
+            return _db.Accesses.FirstOrDefault(x => x.Id == id);
         }
     }
 }
