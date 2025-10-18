@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Harmoni.Models
 {
-    class Access
+    public class Access
     {
         public int Id { get; set; }
         [Required] public int MemberId { get; set; }

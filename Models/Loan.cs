@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Harmoni.Models
 {
-    internal class Loan
+    public class Loan
     {
         [Key] public int Id { get; set; }
         [Required] public int MemberId { get; set; }
