@@ -13,6 +13,7 @@ namespace Harmoni.Models
     public partial class LoanPage : UserControl
     {
         public LoanPage()
+
         {
             InitializeComponent();
         }
