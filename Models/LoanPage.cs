@@ -36,5 +36,10 @@ namespace Harmoni.Models
         {
 
         }
+
+        private void txtLoanID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
