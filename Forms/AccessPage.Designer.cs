@@ -41,12 +41,24 @@
             comboBoxAccess = new ComboBox();
             labelAccess = new Label();
             MemberAccess = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
             groupBoxAccess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAccess).BeginInit();
             SuspendLayout();
             // 
             // groupBoxAccess
             // 
+            groupBoxAccess.Controls.Add(label12);
+            groupBoxAccess.Controls.Add(label11);
+            groupBoxAccess.Controls.Add(label10);
+            groupBoxAccess.Controls.Add(label9);
+            groupBoxAccess.Controls.Add(label2);
+            groupBoxAccess.Controls.Add(label1);
             groupBoxAccess.Controls.Add(label8);
             groupBoxAccess.Controls.Add(label7);
             groupBoxAccess.Controls.Add(label6);
@@ -168,6 +180,60 @@
             MemberAccess.TabIndex = 7;
             MemberAccess.Text = "Member";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(152, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(18, 20);
+            label1.TabIndex = 6;
+            label1.Text = "...";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(152, 66);
+            label2.Name = "label2";
+            label2.Size = new Size(21, 20);
+            label2.TabIndex = 7;
+            label2.Text = "....";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(152, 101);
+            label9.Name = "label9";
+            label9.Size = new Size(21, 20);
+            label9.TabIndex = 8;
+            label9.Text = "....";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(152, 135);
+            label10.Name = "label10";
+            label10.Size = new Size(21, 20);
+            label10.TabIndex = 9;
+            label10.Text = "....";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(152, 168);
+            label11.Name = "label11";
+            label11.Size = new Size(21, 20);
+            label11.TabIndex = 10;
+            label11.Text = "....";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(152, 203);
+            label12.Name = "label12";
+            label12.Size = new Size(21, 20);
+            label12.TabIndex = 11;
+            label12.Text = "....";
+            // 
             // AccessPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -203,5 +269,11 @@
         private ComboBox comboBoxAccess;
         private Label labelAccess;
         private Label MemberAccess;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Label label2;
+        private Label label1;
     }
 }
