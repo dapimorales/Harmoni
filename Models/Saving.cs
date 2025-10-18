@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Harmoni.Models
 {
@@ -6,6 +7,9 @@ namespace Harmoni.Models
     {
         // Id tabungan
         public int Id { get; set; }
+
+        [Required] public int MemberId { get; set; }
+        public Member Member { get; set; } = null!;
 
         // Nama transaksi, diinisialisasi string kosong supaya gak null
         public string TransactionName { get; set; } = string.Empty;
