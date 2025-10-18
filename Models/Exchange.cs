@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Harmoni.Models
 {
-    var exchange = new Exchange
+    /*var exchange = new Exchange
     {
         Id = 1,
         MemberId = 101,
@@ -18,9 +18,9 @@ namespace Harmoni.Models
         Rate = 0.95m,
         ExchangeDate = DateTime.Now,
         TotalAmountExchanged = 95000m
-    };
+    };*/
 
-    internal class Exchange
+    public class Exchange
     {
     }
 }

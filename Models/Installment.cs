@@ -31,7 +31,7 @@ namespace Harmoni.Models
             public string? Notes { get; set; }    // catatan tambahan
         }
     }
-    internal class Installment
+    public class Installment
     {
     }
 }
