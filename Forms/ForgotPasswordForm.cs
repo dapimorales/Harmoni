@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BraveHeroCooperation.Data;
-using BraveHeroCooperation.Services;
+using Harmoni.Data;
+using Harmoni.Forms;
+using Harmoni.Services;
 
 namespace BraveHeroCooperation.Forms
 {

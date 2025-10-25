@@ -1,13 +1,12 @@
-﻿using BraveHeroCooperation.Data;
-using BraveHeroCooperation.Forms.MemberMenus;
-using BraveHeroCooperation.Forms.PublicMenus;
-using BraveHeroCooperation.Models;
-using BraveHeroCooperation.Services;
+﻿using Harmoni.Data;
+using Harmoni.Forms.PublicMenus;
 using Harmoni.Models;
+using Harmoni.Services;
+
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-{ namespace BraveHeroCooperation.Forms
+ namespace Harmoni.Forms { 
 public partial class HomeForm : Form
 {
     Member loggedMember;
@@ -16,7 +15,7 @@ public partial class HomeForm : Form
     {
         loggedMember = member;
         InitializeComponent();
-        this.Text = this.Text + User: +loggedMember.FullName + " (" + loggedMember.MemberId + ")";
+        this.Text = this.Text + "User:" +loggedMember.FullName + " (" + loggedMember.MemberId + ")";
         title = this.Text;
         route(new DashboardPage(member));
     }
@@ -32,13 +31,13 @@ public partial class HomeForm : Form
         transferToolStripMenuItem.Enabled = false;
         exchangeToolStripMenuItem.Enabled = false;
         inhouseToolStripMenuItem.Enabled = false;
-        acrossCooperationToolStripMenuItem.Enabled = false;
+        acrossToolStripMenuItem.Enabled = false;
         loanToolStripMenuItem.ToolTipText = "Disabled";
         savingToolStripMenuItem.ToolTipText = "Disabled";
         transferToolStripMenuItem.ToolTipText = "Disabled";
         exchangeToolStripMenuItem.ToolTipText = "Disabled";
         inhouseToolStripMenuItem.ToolTipText = "Disabled";
-        acrossCooperationToolStripMenuItem.ToolTipText = "Disabled";
+        acrossToolStripMenuItem.ToolTipText = "Disabled";
     }
 
     public void grantAllMenu() {
@@ -47,63 +46,66 @@ public partial class HomeForm : Form
         transferToolStripMenuItem.Enabled = true;
         exchangeToolStripMenuItem.Enabled = true;
         inhouseToolStripMenuItem.Enabled = true;
-        acrossCooperationToolStripMenuItem.Enabled = true;
+        acrossToolStripMenuItem.Enabled = true;
     }
 
-    public void grantAccess()
-    {
-        AppDbContext db = new AppDbContext();
-        AccessService accessService = new AccessService(db);
-        access? access = accessService.findByMember(loggedMember.id);
-        if (access != null)
+        public void grantAccess()
         {
-            var listaccess = access.Accesslist.split(",");
+            AppDbContext db = new AppDbContext();
+            AccessService accessService = new AccessService(db);
+            Access? access = accessService.findByMember(loggedMember.Id);
+            if (access != null)
+            {
+                var listaccess = access.AccessList.Split(",");
 
-            for (int i = 0; i < listaccess.Length; i++) {
-                var accesName = listaccess[i];
-                var accesSegement = accesName.Trim();
-
-                if (accessSegement == "GrantAll")
+                for (int i = 0; i < listaccess.Length; i++)
                 {
-                    grantAllMenu();
-                    break;
-                }
+                    var accesName = listaccess[i];
+                    var accesSegement = accesName.Trim();
 
-                if (accessSegement.containt(","))
-                {
-                    var parts = accesSegement.split(",");
-                    if (parts.leght > 1)
-                        accesSegement = parts[1].Trim();
-                }
-
-                foreach (ToolStripMenuItem menu in menuhome.Items)
-                {
-                    if (menu.Text != null && menu.Text.Contains(accesSegement))
+                    if (accesSegement == "GrantAll")
                     {
-                        menu.Enabled = true;
-                        menu.ToolTipText = "";
+                        grantAllMenu();
+                        break;
                     }
 
-                    else
+                    if (accesSegement.Contains(","))
                     {
-                        foreach (ToolStripMenuItem submenu in menu.DropDownItems)
+                        var parts = accesSegement.Split(",");
+                        if (parts.Length > 1)
+                            accesSegement = parts[1].Trim();
+                    }
+
+                    foreach (ToolStripMenuItem menu in menuStrip1.Items)
+                    {
+                        if (menu.Text != null && menu.Text.Contains(accesSegement))
                         {
-                            if (submenu.Text != null && submenu.Text.Contains(accesSegement))
+                            menu.Enabled = true;
+                            menu.ToolTipText = "";
+                        }
+
+                        else
+                        {
+                            foreach (ToolStripMenuItem submenu in menu.DropDownItems)
                             {
-                                submenu.Enabled = true;
-                                submenu.ToolTipText = "";
+                                if (submenu.Text != null && submenu.Text.Contains(accesSegement))
+                                {
+                                    submenu.Enabled = true;
+                                    submenu.ToolTipText = "";
+                                }
                             }
                         }
                     }
                 }
+            }
+
         }
-    }
 
         private void definitionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        route(new TerminologiPage(loggedMember));
+       /// route(new TerminologiPage(loggedMember)); // member
         }
-        private void manual ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void  ToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,13 +132,14 @@ public partial class HomeForm : Form
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Text = title + " << Profile Page >>";
-            route(new ProfilePage(loggedMember));
+           //// route(new ProfilePage(loggedMember)); // member
         }
         private void loanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Text = title + " << Loan Page >>";
-            route(new LoanPage(loggedMember));
+           //// route(new LoanPage(loggedMember));
         }
     }
-}
 
+
+}

@@ -30,24 +30,25 @@
         {
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            profileToolStripMenuItem = new ToolStripMenuItem();
-            loanToolStripMenuItem = new ToolStripMenuItem();
-            savingToolStripMenuItem = new ToolStripMenuItem();
-            tranferToolStripMenuItem = new ToolStripMenuItem();
-            exchangeToolStripMenuItem = new ToolStripMenuItem();
-            historyToolStripMenuItem = new ToolStripMenuItem();
             dashboardToolStripMenuItem = new ToolStripMenuItem();
             terminologiToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
-            dataGridView1 = new DataGridView();
+            profileToolStripMenuItem = new ToolStripMenuItem();
+            loanToolStripMenuItem = new ToolStripMenuItem();
+            savingToolStripMenuItem = new ToolStripMenuItem();
+            transferToolStripMenuItem = new ToolStripMenuItem();
+            inhouseToolStripMenuItem = new ToolStripMenuItem();
+            acrossToolStripMenuItem = new ToolStripMenuItem();
+            exchangeToolStripMenuItem = new ToolStripMenuItem();
+            historyToolStripMenuItem = new ToolStripMenuItem();
+            panelDisplay = new Panel();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, profileToolStripMenuItem, loanToolStripMenuItem, savingToolStripMenuItem, tranferToolStripMenuItem, exchangeToolStripMenuItem, historyToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, profileToolStripMenuItem, loanToolStripMenuItem, savingToolStripMenuItem, transferToolStripMenuItem, exchangeToolStripMenuItem, historyToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1039, 28);
@@ -60,6 +61,24 @@
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
+            // 
+            // dashboardToolStripMenuItem
+            // 
+            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            dashboardToolStripMenuItem.Size = new Size(172, 26);
+            dashboardToolStripMenuItem.Text = "Dashboard";
+            // 
+            // terminologiToolStripMenuItem
+            // 
+            terminologiToolStripMenuItem.Name = "terminologiToolStripMenuItem";
+            terminologiToolStripMenuItem.Size = new Size(172, 26);
+            terminologiToolStripMenuItem.Text = "Terminologi";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(172, 26);
+            logoutToolStripMenuItem.Text = "Logout";
             // 
             // profileToolStripMenuItem
             // 
@@ -79,11 +98,24 @@
             savingToolStripMenuItem.Size = new Size(67, 24);
             savingToolStripMenuItem.Text = "Saving";
             // 
-            // tranferToolStripMenuItem
+            // transferToolStripMenuItem
             // 
-            tranferToolStripMenuItem.Name = "tranferToolStripMenuItem";
-            tranferToolStripMenuItem.Size = new Size(69, 24);
-            tranferToolStripMenuItem.Text = "Tranfer";
+            transferToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inhouseToolStripMenuItem, acrossToolStripMenuItem });
+            transferToolStripMenuItem.Name = "transferToolStripMenuItem";
+            transferToolStripMenuItem.Size = new Size(69, 24);
+            transferToolStripMenuItem.Text = "Tranfer";
+            // 
+            // inhouseToolStripMenuItem
+            // 
+            inhouseToolStripMenuItem.Name = "inhouseToolStripMenuItem";
+            inhouseToolStripMenuItem.Size = new Size(224, 26);
+            inhouseToolStripMenuItem.Text = "Inhouse";
+            // 
+            // acrossToolStripMenuItem
+            // 
+            acrossToolStripMenuItem.Name = "acrossToolStripMenuItem";
+            acrossToolStripMenuItem.Size = new Size(224, 26);
+            acrossToolStripMenuItem.Text = "Across";
             // 
             // exchangeToolStripMenuItem
             // 
@@ -97,39 +129,19 @@
             historyToolStripMenuItem.Size = new Size(70, 24);
             historyToolStripMenuItem.Text = "History";
             // 
-            // dashboardToolStripMenuItem
+            // panelDisplay
             // 
-            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new Size(224, 26);
-            dashboardToolStripMenuItem.Text = "Dashboard";
-            // 
-            // terminologiToolStripMenuItem
-            // 
-            terminologiToolStripMenuItem.Name = "terminologiToolStripMenuItem";
-            terminologiToolStripMenuItem.Size = new Size(224, 26);
-            terminologiToolStripMenuItem.Text = "Terminologi";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(224, 26);
-            logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(1, 57);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1041, 389);
-            dataGridView1.TabIndex = 1;
+            panelDisplay.Location = new Point(498, 127);
+            panelDisplay.Name = "panelDisplay";
+            panelDisplay.Size = new Size(250, 125);
+            panelDisplay.TabIndex = 1;
             // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1039, 534);
-            Controls.Add(dataGridView1);
+            Controls.Add(panelDisplay);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "HomeForm";
@@ -137,7 +149,6 @@
             Load += HomeForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,9 +163,11 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem loanToolStripMenuItem;
         private ToolStripMenuItem savingToolStripMenuItem;
-        private ToolStripMenuItem tranferToolStripMenuItem;
+        private ToolStripMenuItem transferToolStripMenuItem;
         private ToolStripMenuItem exchangeToolStripMenuItem;
         private ToolStripMenuItem historyToolStripMenuItem;
-        private DataGridView dataGridView1;
+        private Panel panelDisplay;
+        private ToolStripMenuItem inhouseToolStripMenuItem;
+        private ToolStripMenuItem acrossToolStripMenuItem;
     }
 }

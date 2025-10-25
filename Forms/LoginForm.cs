@@ -1,4 +1,7 @@
-﻿using Harmoni.Models;
+﻿using BraveHeroCooperation.Forms;
+using Harmoni.Data;
+using Harmoni.Models;
+using Harmoni.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +54,7 @@ namespace Harmoni.Forms
         private void btnRegis_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationForm form = new RegistrationForm();
+            Registration form = new Registration();
             form.ShowDialog();
         }
 

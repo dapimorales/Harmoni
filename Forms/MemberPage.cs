@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection.Emit;
 using Harmoni.Models;
+using Harmoni.Data;
+using Harmoni.Services;
 
 namespace Harmoni.Forms
 {
@@ -34,12 +36,12 @@ namespace Harmoni.Forms
         {
             AppDbContext db = new AppDbContext();
             MemberService service = new MemberService(db);
-            memberBindingSource.DataSource = service.SetGrid();
-            dataGridViewMember.Columns[0].DataPropertyName = "Id";
-            dataGridViewMember.Columns[0].Visible = false;
-            dataGridViewMember.Columns[1].DataPropertyName = "MemberId";
-            dataGridViewMember.Columns[2].DataPropertyName = "Fullname";
-            dataGridViewMember.Columns[3].DataPropertyName = "ModDate";
+            //memberBindingSource.DataSource = service.SetGrid();
+            //dataGridViewMember.Columns[0].DataPropertyName = "Id";
+            //dataGridViewMember.Columns[0].Visible = false;
+            //dataGridViewMember.Columns[1].DataPropertyName = "MemberId";
+            //dataGridViewMember.Columns[2].DataPropertyName = "Fullname";
+            //dataGridViewMember.Columns[3].DataPropertyName = "ModDate";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace Harmoni.Forms
                     member.IsActive = false;
 
                 member.ModDate = DateTime.UtcNow;
-                service.Update(member);
+                service.UpdateAsync(member);
             }
             loadGridMember();
         }
@@ -79,8 +81,8 @@ namespace Harmoni.Forms
                         lblAddress.Text = member.Address;
                         lblJoinDate.Text = member.JoinDate.ToString("f");
                         lblMemberId.Text = member.MemberId;
-                        lblCardId.Text = member.IdCard;s
-                        labelId.Text = member.Id.ToString();
+                        lblCardId.Text = member.IdCard;
+                        //labelId.Text = member.Id.ToString();
                         if (member.IsActive)
                             cmbStatus.SelectedIndex = 0;
                         else
@@ -94,5 +96,6 @@ namespace Harmoni.Forms
                     }
                 }
             }
+        }
     }
 }

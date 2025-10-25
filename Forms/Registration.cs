@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Harmoni.Data;
+using Harmoni.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,8 +36,8 @@ namespace Harmoni.Forms
             }
             else
             {
-                labelError.Text = "Registration failed. Please try again.";
-                labelError.Visible = true;
+                //labelError.Text = "Registration failed. Please try again.";
+                //labelError.Visible = true;
             }
 
         }
@@ -49,6 +51,7 @@ namespace Harmoni.Forms
 
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
-.
+
         }
     }
+}
