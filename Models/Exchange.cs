@@ -12,7 +12,7 @@ namespace Harmoni.Models
         public int Id { get; set; }
         [Required] public int MemberId { get; set; }
         public Member Member { get; set; } = null!;
-        public string ExchageId { get; set; }
+        public string ExchangeId { get; set; }
         public decimal Amount { get; set; }
         public decimal AmountExchanged { get; set; }
         public decimal Fee { get; set; }
