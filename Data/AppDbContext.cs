@@ -14,7 +14,7 @@ namespace Harmoni.Data
         public DbSet<LoanMaster> LoanMasters => Set<LoanMaster>();
         public DbSet<SavingMaster> SavingMasters => Set<SavingMaster>();
         public DbSet<Loan> Loans => Set<Loan>();
-        //public DbSet<Installment> Installments => Set<Installment>();
+        public DbSet<Installment> Installments => Set<Installment>();
         public DbSet<Saving> Savings => Set<Saving>();
         public DbSet<Inhouse> Inhouses => Set<Inhouse>();
         //public DbSet<Exchange> Exchanges => Set<Exchange>();
@@ -22,11 +22,13 @@ namespace Harmoni.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(AppContext.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
-            optionsBuilder.UseNpgsql(config.GetConnectionString("Default"));
+            //var config = new ConfigurationBuilder()
+            //    .SetBasePath(AppContext.BaseDirectory)
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
+            //optionsBuilder.UseNpgsql(config.GetConnectionString("Default"));
+            optionsBuilder.UseNpgsql("Host=103.82.242.90;Port=5434;Database=vb2_harmoni;Username=postgres;Password=12Qpalzmxn");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -76,7 +78,7 @@ namespace Harmoni.Data
                     );
                 }
             }
-
+            modelBuilder.UseSerialColumns();
             base.OnModelCreating(modelBuilder);
         }
     }

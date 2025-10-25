@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Harmoni.Models
 {
-    /*var exchange = new Exchange
-    {
-        Id = 1,
-        MemberId = 101,
-        Member = memberObj, // objek Member yang sesuai
-        ExchangeId = "EXC20250927",
-        Amount = 100000m,
-        AmountExchanged = 95000m,
-        Fee = 5000m,
-        Rate = 0.95m,
-        ExchangeDate = DateTime.Now,
-        TotalAmountExchanged = 95000m
-    };*/
-
     public class Exchange
     {
+        public int Id { get; set; }
+        [Required] public int MemberId { get; set; }
+        public Member Member { get; set; } = null!;
+        public string ExchangeId { get; set; }
+        public decimal Amount { get; set; }
+        public decimal AmountExchanged {  get; set; }
+        public decimal Fee { get; set; }
+        public decimal Rate { get; set; }
+        public DateTime ExchangeDate { get; set; }
+        public decimal TotalAmountExchanged { get; set; }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Harmoni.Data;
 using Harmoni.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Harmoni.Services
 {
-    class ProductService
+    class ProductService 
     {
         private AppDbContext _db;
         public ProductService(AppDbContext db)

@@ -26,7 +26,7 @@ namespace Harmoni.Services
 
         public async Task<List<Installment>> LoadInstallmentGrid(int Loadid)
         {
-            return await _db.Installments.Where(x => x.LoadId == Loadid)
+            return await _db.Installments.Where(x => x.LoanId == Loadid)
                 .ToListAsync();
         }
 
@@ -62,7 +62,7 @@ namespace Harmoni.Services
                 Outstanding = outstanding,
                 TotalAmount = outstanding + decimal.Parse(adminfee)
             };
-            _db.Loan.Add(l);
+            _db.Loans.Add(l);
             await _db.SaveChangesAsync();
         }
 
@@ -102,7 +102,7 @@ namespace Harmoni.Services
         public async void SetApproval(int id, bool isApprove)
         {
             Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.Id == id);
-            if (l !== null)
+            if (l ! == null)
             {
                 l.ApprovedOn = DateTime.UtcNow;
                 if (isApprove)
@@ -110,7 +110,7 @@ namespace Harmoni.Services
                 else 
                     l.IsApproved = false;
                 _db.Loans.Update(l);
-                await _db.SaveChangeAsync();
+                await _db.SaveChangesAsync();
             }
         }
 
@@ -118,7 +118,7 @@ namespace Harmoni.Services
         {
             Installment i = new Installment
             {
-                LoanID = loanid,
+                LoanId = loanid,
                 amount = decimal.Parse(amount),
                 PaymentDate = DateTime.UtcNow,
                 ProofPath = path
@@ -131,17 +131,18 @@ namespace Harmoni.Services
         {
             decimal payment = decimal.Parse(amount);
             int todayDate = DateTime.UtcNow.Day;
-            Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.id == idLoan);
-            if (l != null) {
-                if (todaysDate > l.DueDate)
+            Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.Id == idLoan);
+            if (l != null)
+            {
+                if (todayDate > l.DueDate)
                 {
-                    l.Fine = (LinkedList.Amount * l.InterestFine) + l.Fine;
+                    l.Fine = (l.Amount * l.InterestFine) + l.Fine;
                     l.TotalAmount += l.Fine;
                 }
 
                 l.Outstanding -= payment;
                 l.TotalAmount -= payment;
-                if (l.outstanding <= 0 && l.TotalAmount > 0)
+                if (l.Outstanding <= 0 && l.TotalAmount > 0)
                     l.TenorLeft = 1;
                 else if (l.TotalAmount <= 0)
                     l.TenorLeft = 0;
@@ -149,6 +150,7 @@ namespace Harmoni.Services
 
                 _db.Loans.Update(l);
                 await _db.SaveChangesAsync();
+            }
         }
     }
 }

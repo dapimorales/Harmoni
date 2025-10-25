@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Harmoni.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace Harmoni.Forms
 {
     public partial class AccessPage : UserControl
     {
-        public AccessPage()
+        Member loggedMember;
+        public AccessPage(Member member)
         {
+            loggedMember = member;
             InitializeComponent();
         }
 
