@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using BraveHeroCooperation.Models;
 using Harmoni.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
