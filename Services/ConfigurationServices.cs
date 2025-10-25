@@ -18,7 +18,7 @@ namespace Harmoni.Services
 
         public async Task<Configuration?> GetConfig()
         {
-            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.id == 1);
+            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.Id == 1);
             return config;
         }
 
@@ -27,11 +27,12 @@ namespace Harmoni.Services
             decimal accrossFee)
         {
             Boolean isNew = false;
-            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.id == 1);
-            if (config == null) {
+            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.Id == 1);
+            if (config == null)
+            {
                 isNew = true;
                 config = new Configuration();
-        }
+            }
 
             config.terminologi1 = terminologi1;
             config.terminologi2 = terminologi2;
@@ -42,7 +43,7 @@ namespace Harmoni.Services
 
             if (isNew)
             {
-                _db.add(config);
+                _db.Add(config);
 
             }
 
@@ -50,7 +51,8 @@ namespace Harmoni.Services
             {
                 _db.Update(config);
             }
-            
+
             await _db.SaveChangesAsync();
+        }
     }
 }
