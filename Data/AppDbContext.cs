@@ -14,7 +14,7 @@ namespace Harmoni.Data
         public DbSet<LoanMaster> LoanMasters => Set<LoanMaster>();
         public DbSet<SavingMaster> SavingMasters => Set<SavingMaster>();
         public DbSet<Loan> Loans => Set<Loan>();
-        //public DbSet<Installment> Installments => Set<Installment>();
+        public DbSet<Installment> Installments => Set<Installment>();
         public DbSet<Saving> Savings => Set<Saving>();
         public DbSet<Inhouse> Inhouses => Set<Inhouse>();
         //public DbSet<Exchange> Exchanges => Set<Exchange>();

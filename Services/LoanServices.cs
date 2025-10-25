@@ -13,10 +13,10 @@ namespace Harmoni.Services
 {
     internal class LoanServices
     {
-        AppDbContext_db;
-        public LoanServices(AppDbContext_db)
+        AppDbContext _db;
+        public LoanServices(AppDbContext db)
         {
-            db = db
+            db = _db;
         }
 
         public async Task<Loan?> findByid(int id)
@@ -26,7 +26,7 @@ namespace Harmoni.Services
 
         public async Task<List<Installment>> LoadInstallmentGrid(int Loadid)
         {
-            return await _db.Installment.Where(x => x.LoadId == Loadid).ToListAsync();
+            return await _db.Installments.Where(x => x.LoadId == Loadid).ToListAsync();
         }
 
         public async Task<List<Loan>> LoadLoanGrid(int MemberId)

@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using Harmoni.Data;
 using Harmoni.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -62,12 +63,12 @@ namespace Harmoni.Services
                 Address = address,
                 Phone = phone,
                 PhoneAlt = phoneAlt,
-                CardId = cardId,
-                ReferenceId = referenceId,
+                IdCard = cardId,
+                Referenceld = referenceId,
                 IsActive = true,
                 Status = "public",
-                Quest1 = quest1,
-                Quest2 = quest2,
+                quest1 = quest1,
+                quest2 = quest2,
                 MemberId = memberId
             };
 
@@ -80,8 +81,8 @@ namespace Harmoni.Services
             var user = await _db.Members.FirstOrDefaultAsync(x =>
                 x.Username == username &&
                 x.IsActive &&
-                x.Quest1.Trim() == quest1.Trim() &&
-                x.Quest2.Trim() == quest2.Trim());
+                x.quest1.Trim() == quest1.Trim() &&
+                x.quest2.Trim() == quest2.Trim());
 
             if (user != null)
             {
