@@ -14,11 +14,10 @@ namespace Harmoni.Models
         public Member Member { get; set; } = null!;
         public string ExchangeId { get; set; }
         public decimal Amount { get; set; }
-        public decimal AmountExchanged {  get; set; }
+        public decimal AmountExchanged { get; set; }
         public decimal Fee { get; set; }
         public decimal Rate { get; set; }
-        public DateTime ExchangeDate { get; set; }
+        public DateTime ExchangedDate { get; set; }
         public decimal TotalAmountExchanged { get; set; }
-
     }
 }

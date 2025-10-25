@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Harmoni.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace Harmoni.Forms.AdminMenus
 {
     public partial class DashboardAdminPage : UserControl
     {
-        public DashboardAdminPage()
+        Member loggedMember;
+        public DashboardAdminPage(Member member)
         {
+            loggedMember = member;
             InitializeComponent();
         }
 

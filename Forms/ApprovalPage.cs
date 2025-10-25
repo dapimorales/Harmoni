@@ -1,8 +1,12 @@
-﻿using System;
+﻿using BraveHeroCooperation.Utils;
+using Harmoni.Data;
+using Harmoni.Models;
+using Harmoni.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +16,10 @@ namespace Harmoni.Forms
 {
     public partial class ApprovalPage : UserControl
     {
-        public ApprovalPage()
+        Member loggedMember;
+        public ApprovalPage(Member member)
         {
+            loggedMember = member;
             InitializeComponent();
         }
 
@@ -27,9 +33,9 @@ namespace Harmoni.Forms
             AppDbContext db = new AppDbContext();
             if (cmbProduct.SelectedIndex == 1)
             {
-                LoanService loanService = new LoanService(db);
+                LoanServices loanService = new LoanServices(db);
                 dataGridViewApproval.AutoGenerateColumns = true;
-                dataGridViewApproval.DataSource = await loanService.LoadsApproval();
+                dataGridViewApproval.DataSource = loanService.LoadApproval();
 
                 dataGridViewApproval.Columns[0].DataPropertyName = "Id";
                 dataGridViewApproval.Columns[1].DataPropertyName = "LoanId";
@@ -89,7 +95,7 @@ namespace Harmoni.Forms
                     }
                     else
                     {
-                        LoanService loanService = new LoanService(db);
+                        LoanServices loanService = new LoanServices(db);
                         DialogResult result = MessageBox.Show("Approve?", "Decision", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         int idLoan = int.Parse(dataGridViewApproval.Rows[e.RowIndex].Cells[0].Value.ToString());
                         if (result == DialogResult.Yes)

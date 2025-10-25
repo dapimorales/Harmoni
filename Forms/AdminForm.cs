@@ -55,6 +55,7 @@ namespace Harmoni.Forms
         private void memberToolStripMenuItem_Click(object sender, EventArgs e)
         {
             route(new MemberPage());
+        }
 
         private void productToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -62,7 +63,7 @@ namespace Harmoni.Forms
         }
         private void acrossCooperationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            route(new AcrossPage());
+           // route(new AcrossPage());
         }
 
         private void approvalToolStripMenuItem_Click(object sender, EventArgs e)

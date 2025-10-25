@@ -7,31 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BraveHeroCooperation.Data;
-using BraveHeroCooperation.Services;
-namespace BraveHeroCooperation.Forms
+using Harmoni.Data;
+using Harmoni.Services;
+namespace Harmoni.Forms
 {
     public partial class ForgotPasswordForm : Form
     {
         public ForgotPasswordForm()
-    PUBLIC {
-        InitializeComponent();
-    }
+        {
+            InitializeComponent();
+         }
 
-    private void buttonBack_Click(object sender, EventArgs e)
-    }
-    this.Hide();
-    LoginForm loginForm = new LoginForm();
-    loginForm.ShowDialog();
-    private void Forgot PasswordForm_Load(object sender, EventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog(); 
+        }
+    private void PasswordForm_Load(object sender, EventArgs e)
     {
 
     }
     private async void buttonSubmit_Click(object sender, EventArgs e) {
-    using var db new AppDbContext();
+    using var db = new AppDbContext();
     var auth = new AuthService(db);//EA1C1B
-    var password = await auth.Reset PasswordAsync(textUsername.Text, textQuest1.Text, textQuest2.Text);
-    }
+    var password = await auth.ResetPasswordAsync(textUsername.Text, textQuest1.Text, textQuest2.Text);
+    
     if (password == "") {
     MessageBox.Show("Invalid username or the answer", "Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
     }
@@ -40,7 +41,7 @@ namespace BraveHeroCooperation.Forms
                 
     }
     
-        }
+        
         
         }
     }
