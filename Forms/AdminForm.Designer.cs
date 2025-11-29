@@ -105,7 +105,7 @@
             // 
             panelDisplay.Location = new Point(12, 31);
             panelDisplay.Name = "panelDisplay";
-            panelDisplay.Size = new Size(844, 125);
+            panelDisplay.Size = new Size(854, 467);
             panelDisplay.TabIndex = 1;
             // 
             // AdminForm
@@ -116,7 +116,7 @@
             Controls.Add(panelDisplay);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "AdminForm";
             Text = "AdminForm";
             Load += AdminForm_Load;

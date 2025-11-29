@@ -42,5 +42,10 @@ namespace Harmoni.Forms
             this.Hide();
             new LoginForm().ShowDialog();
         }
+
+        private void Registration_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
