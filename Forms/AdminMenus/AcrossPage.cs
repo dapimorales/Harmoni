@@ -16,5 +16,10 @@ namespace Harmoni.Forms.AdminMenus
         {
             InitializeComponent();
         }
+
+        private void labelMemberAcrossPage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -122,6 +122,7 @@
             labelMemberAcrossPage.Size = new Size(52, 15);
             labelMemberAcrossPage.TabIndex = 4;
             labelMemberAcrossPage.Text = "Member";
+            labelMemberAcrossPage.Click += labelMemberAcrossPage_Click;
             // 
             // labelTransferAcrossPage
             // 
