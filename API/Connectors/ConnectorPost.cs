@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Text.Json;
+using Harmoni.API.Models;
+
 
 namespace Harmoni.API.Connectors
 {
