@@ -56,11 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="API\Connectors\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="API\Models\Api_Models_PayloadRequest.cs" />
+    <Folder Include="API\Models\" />
   </ItemGroup>
 
 </Project>

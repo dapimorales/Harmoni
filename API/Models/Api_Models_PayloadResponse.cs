@@ -21,7 +21,7 @@ namespace Harmoni.API.Models
         public DateTime ResponseTime   { get; set; }
 
         [JsonPropertyName("coopList")]
-        public List<CoopAcross> CoopList{ get; set; } = new();
+        public List<CoopAcross> CoopList { get; set; } = new();
     }
     
     public class MemberApiResponse
@@ -70,8 +70,6 @@ namespace Harmoni.API.Models
         public TransferAcross? Tranfer { get; set; }
 
         [JsonPropertyName("memberList")]
-        public List<TransferAcross> TransferList { get; set;} = new();
-    internal class Api_Models_PayloadResponse
-    {
+        public List<TransferAcross> TransferList { get; set; } = new();
     }
 }

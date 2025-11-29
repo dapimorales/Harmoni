@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Harmoni.API.Models
 {
-    internal class Api_Models_PayloadModels
+    public class Api_Models_PayloadModels
     {
 
         public class CoopAcross
