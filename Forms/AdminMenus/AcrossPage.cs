@@ -55,7 +55,7 @@ namespace Harmoni.Forms.AdminMenus
                         if (coopApiResponse != null && coopApiResponse.CoopCode != null)
                         {
                             configuration.terminologi3 = coopApiResponse.CoopCode;
-                            configurationService.Update(configuration);
+                            configurationService.update(configuration);
 
                             LoadData();
                         }

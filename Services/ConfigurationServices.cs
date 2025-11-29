@@ -54,5 +54,11 @@ namespace Harmoni.Services
 
             await _db.SaveChangesAsync();
         }
+
+        public async void update (Configuration config)
+        {
+            _db.Configurations.Update(config);
+            await _db.SaveChangesAsync();
+        }
     }
 }
