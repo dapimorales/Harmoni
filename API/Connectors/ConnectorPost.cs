@@ -1,0 +1,92 @@
+﻿using Harmoni.API.Models;
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace Harmoni.API.Connectors
+{
+    public class ConnectorPost
+    {
+        private readonly HttpClient _httpClient = new HttpClient();
+        private string _baseUrl = "http://localhost:20254/";
+
+        // === COOP REGISTRATION ===
+        public async Task<CoopApiResponse?> CoopRegistrationAsync(CoopPayload data)
+        {
+            var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+            string json = JsonSerializer.Serialize(data, options);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response =
+                await _httpClient.PostAsync(_baseUrl + "coop/save", content);
+
+            response.EnsureSuccessStatusCode();
+
+            string responseJson = await response.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<CoopApiResponse>(responseJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        // === MEMBER REGISTRATION ===
+        public async Task<MemberApiResponse?> MemberRegistrationAsync(MemberPayload data)
+        {
+            var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+            string json = JsonSerializer.Serialize(data, options);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response =
+                await _httpClient.PostAsync(_baseUrl + "member/save", content);
+
+            response.EnsureSuccessStatusCode();
+
+            string responseJson = await response.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<MemberApiResponse>(responseJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        // === BALANCE UPDATE ===
+        public async Task<BalanceApiResponse?> BalanceUpdateAsync(BalancePayload data)
+        {
+            var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+            string json = JsonSerializer.Serialize(data, options);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response =
+                await _httpClient.PostAsync(_baseUrl + "balance/save", content);
+
+            response.EnsureSuccessStatusCode();
+
+            string responseJson = await response.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<BalanceApiResponse>(responseJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        // === TRANSFER ===
+        public async Task<TransferApiResponse?> TransferAsync(TransferPayload data)
+        {
+            var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+            string json = JsonSerializer.Serialize(data, options);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response =
+                await _httpClient.PostAsync(_baseUrl + "transfer/save", content);
+
+            response.EnsureSuccessStatusCode();
+
+            string responseJson = await response.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<TransferApiResponse>(responseJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+    }
+}
+s

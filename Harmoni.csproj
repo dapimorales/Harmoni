@@ -56,7 +56,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="API\Connectors\" />
     <Folder Include="API\Models\" />
   </ItemGroup>
 
