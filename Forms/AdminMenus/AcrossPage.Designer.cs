@@ -41,11 +41,11 @@
             labelTransferAcrossPage = new Label();
             dgvTransfer = new DataGridView();
             buttonAcrossPage = new Button();
-            dgvMember = new DataGridView();
+            dgvBalance = new DataGridView();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCoop).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvTransfer).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvMember).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBalance).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -54,72 +54,71 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { StripMenuAcrossPage, memberToolStripMenuItem, accessToolStripMenuItem, produkToolStripMenuItem, approvalToolStripMenuItem, acrossCoorporationToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(978, 24);
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(1118, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // StripMenuAcrossPage
             // 
             StripMenuAcrossPage.Name = "StripMenuAcrossPage";
-            StripMenuAcrossPage.Size = new Size(40, 20);
+            StripMenuAcrossPage.Size = new Size(50, 24);
             StripMenuAcrossPage.Text = "File ";
             // 
             // memberToolStripMenuItem
             // 
             memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            memberToolStripMenuItem.Size = new Size(64, 20);
+            memberToolStripMenuItem.Size = new Size(79, 24);
             memberToolStripMenuItem.Text = "Member";
             // 
             // accessToolStripMenuItem
             // 
             accessToolStripMenuItem.Name = "accessToolStripMenuItem";
-            accessToolStripMenuItem.Size = new Size(55, 20);
+            accessToolStripMenuItem.Size = new Size(67, 24);
             accessToolStripMenuItem.Text = "Access";
             // 
             // produkToolStripMenuItem
             // 
             produkToolStripMenuItem.Name = "produkToolStripMenuItem";
-            produkToolStripMenuItem.Size = new Size(57, 20);
+            produkToolStripMenuItem.Size = new Size(69, 24);
             produkToolStripMenuItem.Text = "Produk";
             // 
             // approvalToolStripMenuItem
             // 
             approvalToolStripMenuItem.Name = "approvalToolStripMenuItem";
-            approvalToolStripMenuItem.Size = new Size(67, 20);
+            approvalToolStripMenuItem.Size = new Size(84, 24);
             approvalToolStripMenuItem.Text = "Approval";
             // 
             // acrossCoorporationToolStripMenuItem
             // 
             acrossCoorporationToolStripMenuItem.Name = "acrossCoorporationToolStripMenuItem";
-            acrossCoorporationToolStripMenuItem.Size = new Size(128, 20);
+            acrossCoorporationToolStripMenuItem.Size = new Size(159, 24);
             acrossCoorporationToolStripMenuItem.Text = "Across Coorporation";
             // 
             // labelCoopAcrossPage
             // 
             labelCoopAcrossPage.AutoSize = true;
-            labelCoopAcrossPage.Location = new Point(-1, 52);
+            labelCoopAcrossPage.Location = new Point(-1, 69);
             labelCoopAcrossPage.Name = "labelCoopAcrossPage";
-            labelCoopAcrossPage.Size = new Size(36, 15);
+            labelCoopAcrossPage.Size = new Size(45, 20);
             labelCoopAcrossPage.TabIndex = 1;
             labelCoopAcrossPage.Text = "Coop";
             // 
             // dgvCoop
             // 
             dgvCoop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCoop.Location = new Point(3, 76);
-            dgvCoop.Margin = new Padding(3, 2, 3, 2);
+            dgvCoop.Location = new Point(3, 101);
             dgvCoop.Name = "dgvCoop";
             dgvCoop.RowHeadersWidth = 51;
-            dgvCoop.Size = new Size(474, 145);
+            dgvCoop.Size = new Size(542, 193);
             dgvCoop.TabIndex = 2;
             // 
             // labelMemberAcrossPage
             // 
             labelMemberAcrossPage.AutoSize = true;
-            labelMemberAcrossPage.Location = new Point(494, 52);
+            labelMemberAcrossPage.Location = new Point(565, 69);
             labelMemberAcrossPage.Name = "labelMemberAcrossPage";
-            labelMemberAcrossPage.Size = new Size(52, 15);
+            labelMemberAcrossPage.Size = new Size(65, 20);
             labelMemberAcrossPage.TabIndex = 4;
             labelMemberAcrossPage.Text = "Member";
             labelMemberAcrossPage.Click += labelMemberAcrossPage_Click;
@@ -127,47 +126,44 @@
             // labelTransferAcrossPage
             // 
             labelTransferAcrossPage.AutoSize = true;
-            labelTransferAcrossPage.Location = new Point(-1, 232);
+            labelTransferAcrossPage.Location = new Point(-1, 309);
             labelTransferAcrossPage.Name = "labelTransferAcrossPage";
-            labelTransferAcrossPage.Size = new Size(49, 15);
+            labelTransferAcrossPage.Size = new Size(61, 20);
             labelTransferAcrossPage.TabIndex = 5;
             labelTransferAcrossPage.Text = "Transfer";
             // 
             // dgvTransfer
             // 
             dgvTransfer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransfer.Location = new Point(5, 249);
-            dgvTransfer.Margin = new Padding(3, 2, 3, 2);
+            dgvTransfer.Location = new Point(6, 332);
             dgvTransfer.Name = "dgvTransfer";
             dgvTransfer.RowHeadersWidth = 51;
-            dgvTransfer.Size = new Size(965, 171);
+            dgvTransfer.Size = new Size(1103, 228);
             dgvTransfer.TabIndex = 6;
             // 
             // buttonAcrossPage
             // 
-            buttonAcrossPage.Location = new Point(440, 424);
-            buttonAcrossPage.Margin = new Padding(3, 2, 3, 2);
+            buttonAcrossPage.Location = new Point(503, 565);
             buttonAcrossPage.Name = "buttonAcrossPage";
-            buttonAcrossPage.Size = new Size(81, 30);
+            buttonAcrossPage.Size = new Size(93, 40);
             buttonAcrossPage.TabIndex = 7;
             buttonAcrossPage.Text = "Refresh";
             buttonAcrossPage.UseVisualStyleBackColor = true;
             // 
-            // dgvMember
+            // dgvBalance
             // 
-            dgvMember.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMember.Location = new Point(494, 76);
-            dgvMember.Margin = new Padding(3, 2, 3, 2);
-            dgvMember.Name = "dgvMember";
-            dgvMember.RowHeadersWidth = 51;
-            dgvMember.Size = new Size(474, 145);
-            dgvMember.TabIndex = 8;
+            dgvBalance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBalance.Location = new Point(565, 101);
+            dgvBalance.Name = "dgvBalance";
+            dgvBalance.RowHeadersWidth = 51;
+            dgvBalance.Size = new Size(542, 193);
+            dgvBalance.TabIndex = 8;
             // 
             // AcrossPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvMember);
+            Controls.Add(dgvBalance);
             Controls.Add(buttonAcrossPage);
             Controls.Add(dgvTransfer);
             Controls.Add(labelTransferAcrossPage);
@@ -175,15 +171,14 @@
             Controls.Add(dgvCoop);
             Controls.Add(labelCoopAcrossPage);
             Controls.Add(menuStrip1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "AcrossPage";
-            Size = new Size(978, 487);
+            Size = new Size(1118, 649);
             Load += AcrossPage_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCoop).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvTransfer).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvMember).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBalance).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,6 +198,6 @@
         private Label labelTransferAcrossPage;
         private DataGridView dgvTransfer;
         private Button buttonAcrossPage;
-        private DataGridView dgvMember;
+        private DataGridView dgvBalance;
     }
 }

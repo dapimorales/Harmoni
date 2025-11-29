@@ -29,8 +29,50 @@ namespace Harmoni.Forms.AdminMenus
 
         private async void AcrossPage_Load(object sender, EventArgs e)
         {
-            await LoadData();
+            String message = "";
+            AppDbContext db = new AppDbContext();
+            ConnectorPost connectorPost = new ConnectorPost();
+            ConfigurationServices configurationService = new ConfigurationServices(db);
+            Configuration? configuration = await configurationService.GetConfig();
+            if (configuration == null)
+                message = "Configuration not found!";
+
+            if (configuration != null) {
+                if (configuration.terminologi3 == null || configuration.terminologi3 == "-")
+                {
+                    DialogResult result = MessageBox.Show("Not registered yet. Register Now!",
+                    "Regist Accross", MessageBoxButtons.OK);
+
+                    if (result == DialogResult.OK)
+                    {
+                        CoopApiResponse? coopApiResponse = await connectorPost.CoopRegistrationAsync(
+                            new CoopPayload
+                            {
+                                name = "Harmoni",
+                                address = "Siberia",
+                                code = ""
+                            });
+                        if (coopApiResponse != null && coopApiResponse.CoopCode != null)
+                        {
+                            configuration.terminologi3 = coopApiResponse.CoopCode;
+                            configurationService.Update(configuration);
+
+                            LoadData();
+                        }
+                        else
+                        {
+                            message = "Failed to register coop to across system: " + coopApiResponse?.ResponseMessage;
+                        }
+                    }
+                }
+                else
+                {
+                    LoadData();
+                }
+            }
         }
+    
+
 
         private async void buttonRefresh_Click(object sender, EventArgs e)
         {
@@ -40,7 +82,7 @@ namespace Harmoni.Forms.AdminMenus
         private async Task LoadData()
         {
             AppDbContext appDbContext = new AppDbContext();
-            configurationService configurationService = new ConfigurationService(appDbContext);
+            ConfigurationServices configurationService = new ConfigurationServices(appDbContext);
             Configuration configuration = await configurationService.GetConfig();
 
             string message = "";
@@ -70,12 +112,12 @@ namespace Harmoni.Forms.AdminMenus
             // GET BALANCE LIST
             // ======================
             BalanceApiResponse? balanceApiResponse =
-                await connectorGet.GetBalancesByCoopAsync(configuration.Terminologi3);
+                await connectorGet.GetBalancesByCoopAsync(configuration.terminologi3);
 
             if (balanceApiResponse != null && balanceApiResponse.ResponseCode == "00")
             {
                 dgvBalance.Rows.Clear();
-                foreach (var bal in balanceApiResponse.BalanceList)
+                foreach (var bal in balanceApiResponse.balanceList)
                 {
                     dgvBalance.Rows.Add(bal.Member.Code, bal.Member.Name, bal.Amount);
                 }
@@ -91,7 +133,7 @@ namespace Harmoni.Forms.AdminMenus
             // GET TRANSFER LIST
             // ======================
             TransferApiResponse? transferApiResponse =
-                await connectorGet.GetTransfersByCoopAsync(configuration.Terminologi3);
+                await connectorGet.GetTransfersByCoopAsync(configuration.terminologi3);
 
             if (transferApiResponse != null && transferApiResponse.ResponseCode == "00")
             {
@@ -104,7 +146,7 @@ namespace Harmoni.Forms.AdminMenus
                         transfer.CodeOrigin,
                         transfer.CodeBenef,
                         transfer.Amount,
-                        transfer.Remarks
+                        transfer.Remaks
                     );
                 }
             }
