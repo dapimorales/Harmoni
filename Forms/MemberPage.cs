@@ -37,11 +37,11 @@ namespace Harmoni.Forms
             AppDbContext db = new AppDbContext();
             MemberService service = new MemberService(db);
             //memberBindingSource.DataSource = service.SetGrid();
-            //dataGridViewMember.Columns[0].DataPropertyName = "Id";
-            //dataGridViewMember.Columns[0].Visible = false;
-            //dataGridViewMember.Columns[1].DataPropertyName = "MemberId";
-            //dataGridViewMember.Columns[2].DataPropertyName = "Fullname";
-            //dataGridViewMember.Columns[3].DataPropertyName = "ModDate";
+            dataGridViewMember.Columns[0].DataPropertyName = "Id";
+            dataGridViewMember.Columns[0].Visible = false;
+            dataGridViewMember.Columns[1].DataPropertyName = "MemberId";
+            dataGridViewMember.Columns[2].DataPropertyName = "Fullname";
+            dataGridViewMember.Columns[3].DataPropertyName = "ModDate";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

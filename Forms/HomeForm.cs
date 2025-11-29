@@ -132,12 +132,12 @@ public partial class HomeForm : Form
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Text = title + " << Profile Page >>";
-           //// route(new ProfilePage(loggedMember)); // member
+            //route(new ProfilePage(loggedMember)); // member
         }
         private void loanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Text = title + " << Loan Page >>";
-           //// route(new LoanPage(loggedMember));
+            //route(new LoanPage(loggedMember));
         }
     }
 

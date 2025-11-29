@@ -108,13 +108,13 @@
             // inhouseToolStripMenuItem
             // 
             inhouseToolStripMenuItem.Name = "inhouseToolStripMenuItem";
-            inhouseToolStripMenuItem.Size = new Size(224, 26);
+            inhouseToolStripMenuItem.Size = new Size(143, 26);
             inhouseToolStripMenuItem.Text = "Inhouse";
             // 
             // acrossToolStripMenuItem
             // 
             acrossToolStripMenuItem.Name = "acrossToolStripMenuItem";
-            acrossToolStripMenuItem.Size = new Size(224, 26);
+            acrossToolStripMenuItem.Size = new Size(143, 26);
             acrossToolStripMenuItem.Text = "Across";
             // 
             // exchangeToolStripMenuItem
@@ -131,9 +131,9 @@
             // 
             // panelDisplay
             // 
-            panelDisplay.Location = new Point(498, 127);
+            panelDisplay.Location = new Point(12, 53);
             panelDisplay.Name = "panelDisplay";
-            panelDisplay.Size = new Size(250, 125);
+            panelDisplay.Size = new Size(1015, 427);
             panelDisplay.TabIndex = 1;
             // 
             // HomeForm
