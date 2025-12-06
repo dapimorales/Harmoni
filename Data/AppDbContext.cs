@@ -27,7 +27,7 @@ namespace Harmoni.Data
             //    .AddJsonFile("appsettings.json")
             //    .Build();
             //optionsBuilder.UseNpgsql(config.GetConnectionString("Default"));
-            optionsBuilder.UseNpgsql("Host=103.82.242.90;Port=5434;Database=vb2_harmoni;Username=postgres;Password=12Qpalzmxn");
+            optionsBuilder.UseNpgsql("Host=103.82.242.90;Port=5434;Database=vb2_harmoni;Username=postgres;Password=adedwi");
 
         }
 
