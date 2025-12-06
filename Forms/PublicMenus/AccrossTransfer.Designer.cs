@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,6 +45,7 @@
             button2 = new Button();
             dataGridView1 = new DataGridView();
             dataGridView2 = new DataGridView();
+            timerInbox = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -229,5 +231,6 @@
         private Button button2;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
+        private System.Windows.Forms.Timer timerInbox;
     }
 }
