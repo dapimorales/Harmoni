@@ -185,6 +185,10 @@
             dataGridView2.Size = new Size(337, 145);
             dataGridView2.TabIndex = 15;
             // 
+            // timerInbox
+            // 
+            timerInbox.Interval = 10000;
+            // 
             // AccrossTransfer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
