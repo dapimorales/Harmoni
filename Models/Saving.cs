@@ -7,28 +7,29 @@ namespace Harmoni.Models
     {
         // Id tabungan
         public int Id { get; set; }
-
         [Required] public int MemberId { get; set; }
         public Member Member { get; set; } = null!;
-
-        // Nama transaksi, diinisialisasi string kosong supaya gak null
-        public string TransactionName { get; set; } = string.Empty;
-
-        // Jumlah tabungan
+        [Required] public int SavingId { get; set; }
+        public DateTime SavingDate { get; set; }
         public decimal Amount { get; set; }
+        public decimal Fine { get; set; }
+        public decimal WithdrawAmount { get; set; }
+        public DateTime WithdrawDate { get; set; }
+        public decimal Interest { get; set; }
+        public decimal InterestFine { get; set; }
+        public decimal Tenor { get; set; }
+        public DateTime TargetDate { get; set; }
+        [Required] public decimal TotalAmount { get; set; }
 
-        // Tanggal transaksi
-        public DateTime TransactionDate { get; set; } = DateTime.Now;
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+        [Required, MaxLength(20)] public string Status { get; set; } = "Pending";
+        public int DueDate { get; set; }
+        public bool IsApproved { get; set; } = false;
+        public DateTime? ApprovedOn { get; set; }
+        public decimal AdminFee { get; set; }
 
-        // Keterangan tambahan (boleh null)
-        public string? Notes { get; set; }
-
-        // Constructor default
-        public Saving()
-        {
-            // Kalau perlu nilai default lain bisa di sini
-            Id = 0;
-            Amount = 0;
-        }
+        public string? KtpPath { get; set; }
+        public string? KkPath { get; set; }
+        public string? SlipGajiPath { get; set; }
     }
 }
