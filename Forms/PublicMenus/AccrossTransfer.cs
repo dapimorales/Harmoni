@@ -17,7 +17,7 @@ namespace Harmoni.Forms.PublicMenus
     public partial class AccrossTransfer : UserControl
     {
         Member loggedMember;
-        public AccrossTransfer(Member  member)
+        public AccrossTransfer(Member member)
         {
             loggedMember = member;
             InitializeComponent();
@@ -44,9 +44,9 @@ namespace Harmoni.Forms.PublicMenus
                 {
                     timerInbox.Enabled = true;
                 }
-            }   
+            }
         }
-    
+
         private async Task<string> MemberResgistration(AppDbContext db)
         {
             String message = "succes";
@@ -57,5 +57,10 @@ namespace Harmoni.Forms.PublicMenus
             if (configuration != null)
                 message = "configuration not found!";
         }
-    }   
+
+        private void AccrossTransfer_Load_1(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
