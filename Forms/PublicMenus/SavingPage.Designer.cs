@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             txtSavingID = new TextBox();
-            txtSavingType = new TextBox();
             label2 = new Label();
             txtAdminFee = new TextBox();
             label3 = new Label();
@@ -62,11 +62,14 @@
             btnBrowseSlip = new Button();
             btnNewSaving = new Button();
             btnApplySaving = new Button();
-            dgvSaving = new DataGridView();
+            dataGridViewSaving = new DataGridView();
             btnReload = new Button();
             btnBrowseKK = new Button();
             label9 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvSaving).BeginInit();
+            bindingSource1 = new BindingSource(components);
+            comboSavingMaster = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewSaving).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -85,13 +88,6 @@
             txtSavingID.ReadOnly = true;
             txtSavingID.Size = new Size(246, 31);
             txtSavingID.TabIndex = 1;
-            // 
-            // txtSavingType
-            // 
-            txtSavingType.Location = new Point(25, 121);
-            txtSavingType.Name = "txtSavingType";
-            txtSavingType.Size = new Size(246, 31);
-            txtSavingType.TabIndex = 3;
             // 
             // label2
             // 
@@ -359,14 +355,14 @@
             btnApplySaving.Text = "Apply Saving";
             btnApplySaving.UseVisualStyleBackColor = true;
             // 
-            // dgvSaving
+            // dataGridViewSaving
             // 
-            dgvSaving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSaving.Location = new Point(588, 48);
-            dgvSaving.Name = "dgvSaving";
-            dgvSaving.RowHeadersWidth = 62;
-            dgvSaving.Size = new Size(883, 545);
-            dgvSaving.TabIndex = 36;
+            dataGridViewSaving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewSaving.Location = new Point(588, 48);
+            dataGridViewSaving.Name = "dataGridViewSaving";
+            dataGridViewSaving.RowHeadersWidth = 62;
+            dataGridViewSaving.Size = new Size(883, 545);
+            dataGridViewSaving.TabIndex = 36;
             // 
             // btnReload
             // 
@@ -395,14 +391,23 @@
             label9.TabIndex = 39;
             label9.Text = "Saving";
             // 
+            // comboSavingMaster
+            // 
+            comboSavingMaster.FormattingEnabled = true;
+            comboSavingMaster.Location = new Point(25, 121);
+            comboSavingMaster.Name = "comboSavingMaster";
+            comboSavingMaster.Size = new Size(246, 33);
+            comboSavingMaster.TabIndex = 40;
+            // 
             // SavingPage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboSavingMaster);
             Controls.Add(label9);
             Controls.Add(btnBrowseKK);
             Controls.Add(btnReload);
-            Controls.Add(dgvSaving);
+            Controls.Add(dataGridViewSaving);
             Controls.Add(btnNewSaving);
             Controls.Add(btnApplySaving);
             Controls.Add(btnShowSlip);
@@ -433,14 +438,14 @@
             Controls.Add(label4);
             Controls.Add(txtAdminFee);
             Controls.Add(label3);
-            Controls.Add(txtSavingType);
             Controls.Add(label2);
             Controls.Add(txtSavingID);
             Controls.Add(label1);
             Name = "SavingPage";
             Size = new Size(1491, 675);
             Load += SavingPage_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvSaving).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewSaving).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -449,7 +454,6 @@
 
         private Label label1;
         private TextBox txtSavingID;
-        private TextBox txtSavingType;
         private Label label2;
         private TextBox txtAdminFee;
         private Label label3;
@@ -481,9 +485,11 @@
         private Button btnBrowseSlip;
         private Button btnNewSaving;
         private Button btnApplySaving;
-        private DataGridView dgvSaving;
+        private DataGridView dataGridViewSaving;
         private Button btnReload;
         private Button btnBrowseKK;
         private Label label9;
+        private BindingSource bindingSource1;
+        private ComboBox comboSavingMaster;
     }
 }

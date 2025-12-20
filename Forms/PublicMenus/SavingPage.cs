@@ -97,5 +97,116 @@ namespace Harmoni.Forms.PublicMenus
             txtMinAmount.Text = "";
             txtMaxAmount.Text = "";
         }
+
+        private async void LoadSavingGrid(AppDbContext db)
+        {
+            SavingService savingService = new SavingService(db);
+            loanBindingSource.DataSource = await savingService.LoadSavingGrid(loggedMe);
+            dataGridViewSaving.Columns[0].DataPropertyName = "Id";
+            dataGridViewSaving.Columns[1].DataPropertyName = "SavingId";
+            dataGridViewSaving.Columns[2].DataPropertyName = "Amount";
+            dataGridViewSaving.Columns[3].DataPropertyName = "Tenor";
+
+            dataGridViewSaving.Columns[0].Visible = false;
+            dataGridViewSaving.Columns[1].HeaderText = "Saving ID";
+            dataGridViewSaving.Columns[2].HeaderText = "Amount";
+            dataGridViewSaving.Columns[3].HeaderText = "Tenor";
+        }
+
+        private async void comboLoanMaster_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSavingMaster.SelectedIndex == 0)
+                ResetDropDown();
+
+            if (comboSavingMaster.SelectedIndex > 0)
+            {
+                int idLoanMaster = int.Parse(comboSavingMaster.SelectedValue.ToString());
+                AppDbContext db = new AppDbContext();
+                ProductService productService = new ProductService(db);
+                LoanMaster? loanMaster = await productService.findLoanById(idLoanMaster);
+
+                if (loanMaster != null)
+                {
+                    txtInterest.Text = loanMaster.Interest.ToString();
+                    txtInterestFIne.Text = loanMaster.Fine.ToString();
+                    txtTenor.Text = loanMaster.Tenor.ToString();
+                    txtAdminFee.Text = loanMaster.AdminFee.ToString();
+                    txtMinAmount.Text = loanMaster.MinAmount.ToString();
+                    txtMaxAmount.Text = loanMaster.MaxAmount.ToString();
+                }
+                else
+                {
+                    ResetDropDown();
+                }
+            }
+        }
+
+        private async void cmbLoanMaster_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSavingMaster.SelectedIndex == 0)
+                ResetDropDown();
+
+            if (comboSavingMaster.SelectedIndex > 0)
+            {
+                int idLoanMaster = int.Parse(comboSavingMaster.SelectedValue.ToString());
+                AppDbContext db = new AppDbContext();
+                ProductService productService = new ProductService(db);
+                LoanMaster? loanMaster = await productService.findLoanById(idLoanMaster);
+
+                if (loanMaster != null)
+                {
+                    txtInterest.Text = loanMaster.Interest.ToString();
+                    txtInterestFIne.Text = loanMaster.Fine.ToString();
+                    txtTenor.Text = loanMaster.Tenor.ToString();
+                    txtAdminFee.Text = loanMaster.AdminFee.ToString();
+                    txtMinAmount.Text = loanMaster.MinAmount.ToString();
+                    txtMaxAmount.Text = loanMaster.MaxAmount.ToString();
+                }
+                else
+                {
+                    ResetDropDown();
+                }
+            }
+        }
+
+        private void buttonNewSaving_Click(object sender, EventArgs e)
+        {
+            SetDefaultField();
+            ResetField();
+            btnApplySaving.Enabled = true;
+            comboSavingMaster.SelectedIndex = 0;
+            comboSavingMaster.Enabled = true;
+        }
+
+        private void buttonReload_Click_1(object sender, EventArgs e)
+        {
+            AppDbContext db = new AppDbContext();
+
+            SetSavingDropDown(db);
+            SetDefaultField();
+            ResetField();
+
+            LoadSavingGrid(db);
+        }
+
+        private void btnNewSaving_Click(object sender, EventArgs e)
+        {
+            SetDefaultField();
+            ResetField();
+            btnApplySaving.Enabled = true;
+            comboSavingMaster.SelectedIndex = 0;
+            comboSavingMaster.Enabled = true;
+        }
+
+        private void btnReload_Click_1(object sender, EventArgs e)
+        {
+            AppDbContext db = new AppDbContext();
+
+            SetSavingDropDown(db);
+            SetDefaultField();
+            ResetField();
+
+            LoadSavingGrid(db);
+        }
     }
 }
