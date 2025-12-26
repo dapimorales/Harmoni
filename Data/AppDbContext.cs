@@ -17,18 +17,13 @@ namespace Harmoni.Data
         public DbSet<Installment> Installments => Set<Installment>();
         public DbSet<Saving> Savings => Set<Saving>();
         public DbSet<Inhouse> Inhouses => Set<Inhouse>();
-        //public DbSet<Exchange> Exchanges => Set<Exchange>();
+        public DbSet<Exchange> Exchanges => Set<Exchange>();
         public DbSet<Balance> Balances => Set<Balance>();
+        public DbSet<BalanceHistory> BalanceHistories => Set<BalanceHistory>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //var config = new ConfigurationBuilder()
-            //    .SetBasePath(AppContext.BaseDirectory)
-            //    .AddJsonFile("appsettings.json")
-            //    .Build();
-            //optionsBuilder.UseNpgsql(config.GetConnectionString("Default"));
-            optionsBuilder.UseNpgsql("Host=103.82.242.90;Port=5434;Database=vb2_harmoni;Username=postgres;Password=adedwi");
-
+            optionsBuilder.UseNpgsql("Host=103.82.242.90;Port=5434;Database=vb2_harmoni;Username=postgres;Password=12Qpalzmxn");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,10 +33,10 @@ namespace Harmoni.Data
                 .WithMany(m => m.Loans)
                 .HasForeignKey(l => l.MemberId);
 
-            /*modelBuilder.Entity<Installment>()
+            modelBuilder.Entity<Installment>()
                 .HasOne(i => i.Loan)
                 .WithMany(l => l.Installments)
-                .HasForeignKey(i => i.LoanId);*/
+                .HasForeignKey(i => i.LoanId);
 
             modelBuilder.Entity<Access>()
                 .HasOne(a => a.Member)
@@ -63,10 +58,13 @@ namespace Harmoni.Data
                 .WithMany(m => m.DestinationTransactions)
                 .HasForeignKey(x => x.DestinationId);
 
-            /*modelBuilder.Entity<Exchange>()
+            modelBuilder.Entity<Exchange>()
                 .HasOne(x => x.Member)
                 .WithMany(m => m.Exchanges)
-                .HasForeignKey(x => x.MemberId);*/
+                .HasForeignKey(x => x.MemberId);
+
+            modelBuilder.Entity<BalanceHistory>()
+                .HasNoKey();
 
             foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
@@ -78,7 +76,7 @@ namespace Harmoni.Data
                     );
                 }
             }
-            modelBuilder.UseSerialColumns();
+
             base.OnModelCreating(modelBuilder);
         }
     }

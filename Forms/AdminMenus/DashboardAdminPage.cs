@@ -1,5 +1,4 @@
-﻿using Harmoni.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,24 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Harmoni.Models;
 
 namespace Harmoni.Forms.AdminMenus
 {
     public partial class DashboardAdminPage : UserControl
     {
-        Member loggedMember;
-        public DashboardAdminPage(Member member)
+        private Member? loggedMember;
+        public DashboardAdminPage(Member? member )
         {
             loggedMember = member;
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void DashboardAdminControl_Load(object sender, EventArgs e)
         {
 
         }

@@ -28,176 +28,224 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            StripMenuAcrossPage = new ToolStripMenuItem();
-            memberToolStripMenuItem = new ToolStripMenuItem();
-            accessToolStripMenuItem = new ToolStripMenuItem();
-            produkToolStripMenuItem = new ToolStripMenuItem();
-            approvalToolStripMenuItem = new ToolStripMenuItem();
-            acrossCoorporationToolStripMenuItem = new ToolStripMenuItem();
-            labelCoopAcrossPage = new Label();
             dgvCoop = new DataGridView();
-            labelMemberAcrossPage = new Label();
-            labelTransferAcrossPage = new Label();
-            dgvTransfer = new DataGridView();
-            buttonAcrossPage = new Button();
+            CoopCode = new DataGridViewTextBoxColumn();
+            CoopName = new DataGridViewTextBoxColumn();
+            CoopAddress = new DataGridViewTextBoxColumn();
+            IsDelete = new DataGridViewTextBoxColumn();
             dgvBalance = new DataGridView();
-            menuStrip1.SuspendLayout();
+            MemberCode = new DataGridViewTextBoxColumn();
+            MemberName = new DataGridViewTextBoxColumn();
+            Balance = new DataGridViewTextBoxColumn();
+            dgvTransfer = new DataGridView();
+            TransferCode = new DataGridViewTextBoxColumn();
+            Origin = new DataGridViewTextBoxColumn();
+            Benef = new DataGridViewTextBoxColumn();
+            Amount = new DataGridViewTextBoxColumn();
+            TransferOn = new DataGridViewTextBoxColumn();
+            Remarks = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            buttonRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCoop).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvBalance).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTransfer).BeginInit();
             SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { StripMenuAcrossPage, memberToolStripMenuItem, accessToolStripMenuItem, produkToolStripMenuItem, approvalToolStripMenuItem, acrossCoorporationToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(6, 3, 0, 3);
-            menuStrip1.Size = new Size(1118, 30);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // StripMenuAcrossPage
-            // 
-            StripMenuAcrossPage.Name = "StripMenuAcrossPage";
-            StripMenuAcrossPage.Size = new Size(50, 24);
-            StripMenuAcrossPage.Text = "File ";
-            // 
-            // memberToolStripMenuItem
-            // 
-            memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            memberToolStripMenuItem.Size = new Size(79, 24);
-            memberToolStripMenuItem.Text = "Member";
-            // 
-            // accessToolStripMenuItem
-            // 
-            accessToolStripMenuItem.Name = "accessToolStripMenuItem";
-            accessToolStripMenuItem.Size = new Size(67, 24);
-            accessToolStripMenuItem.Text = "Access";
-            // 
-            // produkToolStripMenuItem
-            // 
-            produkToolStripMenuItem.Name = "produkToolStripMenuItem";
-            produkToolStripMenuItem.Size = new Size(69, 24);
-            produkToolStripMenuItem.Text = "Produk";
-            // 
-            // approvalToolStripMenuItem
-            // 
-            approvalToolStripMenuItem.Name = "approvalToolStripMenuItem";
-            approvalToolStripMenuItem.Size = new Size(84, 24);
-            approvalToolStripMenuItem.Text = "Approval";
-            // 
-            // acrossCoorporationToolStripMenuItem
-            // 
-            acrossCoorporationToolStripMenuItem.Name = "acrossCoorporationToolStripMenuItem";
-            acrossCoorporationToolStripMenuItem.Size = new Size(159, 24);
-            acrossCoorporationToolStripMenuItem.Text = "Across Coorporation";
-            // 
-            // labelCoopAcrossPage
-            // 
-            labelCoopAcrossPage.AutoSize = true;
-            labelCoopAcrossPage.Location = new Point(-1, 69);
-            labelCoopAcrossPage.Name = "labelCoopAcrossPage";
-            labelCoopAcrossPage.Size = new Size(45, 20);
-            labelCoopAcrossPage.TabIndex = 1;
-            labelCoopAcrossPage.Text = "Coop";
             // 
             // dgvCoop
             // 
+            dgvCoop.AllowUserToAddRows = false;
+            dgvCoop.AllowUserToDeleteRows = false;
             dgvCoop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCoop.Location = new Point(3, 101);
+            dgvCoop.Columns.AddRange(new DataGridViewColumn[] { CoopCode, CoopName, CoopAddress, IsDelete });
+            dgvCoop.Location = new Point(23, 37);
             dgvCoop.Name = "dgvCoop";
-            dgvCoop.RowHeadersWidth = 51;
-            dgvCoop.Size = new Size(542, 193);
-            dgvCoop.TabIndex = 2;
+            dgvCoop.ReadOnly = true;
+            dgvCoop.Size = new Size(467, 192);
+            dgvCoop.TabIndex = 0;
             // 
-            // labelMemberAcrossPage
+            // CoopCode
             // 
-            labelMemberAcrossPage.AutoSize = true;
-            labelMemberAcrossPage.Location = new Point(565, 69);
-            labelMemberAcrossPage.Name = "labelMemberAcrossPage";
-            labelMemberAcrossPage.Size = new Size(65, 20);
-            labelMemberAcrossPage.TabIndex = 4;
-            labelMemberAcrossPage.Text = "Member";
-            labelMemberAcrossPage.Click += labelMemberAcrossPage_Click;
+            CoopCode.HeaderText = "Code";
+            CoopCode.Name = "CoopCode";
+            CoopCode.ReadOnly = true;
             // 
-            // labelTransferAcrossPage
+            // CoopName
             // 
-            labelTransferAcrossPage.AutoSize = true;
-            labelTransferAcrossPage.Location = new Point(-1, 309);
-            labelTransferAcrossPage.Name = "labelTransferAcrossPage";
-            labelTransferAcrossPage.Size = new Size(61, 20);
-            labelTransferAcrossPage.TabIndex = 5;
-            labelTransferAcrossPage.Text = "Transfer";
+            CoopName.HeaderText = "Name";
+            CoopName.Name = "CoopName";
+            CoopName.ReadOnly = true;
             // 
-            // dgvTransfer
+            // CoopAddress
             // 
-            dgvTransfer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransfer.Location = new Point(6, 332);
-            dgvTransfer.Name = "dgvTransfer";
-            dgvTransfer.RowHeadersWidth = 51;
-            dgvTransfer.Size = new Size(1103, 228);
-            dgvTransfer.TabIndex = 6;
+            CoopAddress.HeaderText = "Address";
+            CoopAddress.Name = "CoopAddress";
+            CoopAddress.ReadOnly = true;
             // 
-            // buttonAcrossPage
+            // IsDelete
             // 
-            buttonAcrossPage.Location = new Point(503, 565);
-            buttonAcrossPage.Name = "buttonAcrossPage";
-            buttonAcrossPage.Size = new Size(93, 40);
-            buttonAcrossPage.TabIndex = 7;
-            buttonAcrossPage.Text = "Refresh";
-            buttonAcrossPage.UseVisualStyleBackColor = true;
+            IsDelete.HeaderText = "Telah dihapus?";
+            IsDelete.Name = "IsDelete";
+            IsDelete.ReadOnly = true;
             // 
             // dgvBalance
             // 
+            dgvBalance.AllowUserToAddRows = false;
+            dgvBalance.AllowUserToDeleteRows = false;
             dgvBalance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBalance.Location = new Point(565, 101);
+            dgvBalance.Columns.AddRange(new DataGridViewColumn[] { MemberCode, MemberName, Balance });
+            dgvBalance.Location = new Point(496, 37);
             dgvBalance.Name = "dgvBalance";
-            dgvBalance.RowHeadersWidth = 51;
-            dgvBalance.Size = new Size(542, 193);
-            dgvBalance.TabIndex = 8;
+            dgvBalance.ReadOnly = true;
+            dgvBalance.Size = new Size(376, 192);
+            dgvBalance.TabIndex = 1;
+            // 
+            // MemberCode
+            // 
+            MemberCode.HeaderText = "Code";
+            MemberCode.Name = "MemberCode";
+            MemberCode.ReadOnly = true;
+            // 
+            // MemberName
+            // 
+            MemberName.HeaderText = "Name";
+            MemberName.Name = "MemberName";
+            MemberName.ReadOnly = true;
+            // 
+            // Balance
+            // 
+            Balance.HeaderText = "Balance";
+            Balance.Name = "Balance";
+            Balance.ReadOnly = true;
+            // 
+            // dgvTransfer
+            // 
+            dgvTransfer.AllowUserToAddRows = false;
+            dgvTransfer.AllowUserToDeleteRows = false;
+            dgvTransfer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTransfer.Columns.AddRange(new DataGridViewColumn[] { TransferCode, Origin, Benef, Amount, TransferOn, Remarks });
+            dgvTransfer.Location = new Point(23, 261);
+            dgvTransfer.Name = "dgvTransfer";
+            dgvTransfer.ReadOnly = true;
+            dgvTransfer.Size = new Size(849, 186);
+            dgvTransfer.TabIndex = 2;
+            // 
+            // TransferCode
+            // 
+            TransferCode.HeaderText = "Transfer Code";
+            TransferCode.Name = "TransferCode";
+            TransferCode.ReadOnly = true;
+            // 
+            // Origin
+            // 
+            Origin.HeaderText = "Origin";
+            Origin.Name = "Origin";
+            Origin.ReadOnly = true;
+            // 
+            // Benef
+            // 
+            Benef.HeaderText = "Benef";
+            Benef.Name = "Benef";
+            Benef.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            Amount.HeaderText = "Amount";
+            Amount.Name = "Amount";
+            Amount.ReadOnly = true;
+            // 
+            // TransferOn
+            // 
+            TransferOn.HeaderText = "Transfer On";
+            TransferOn.Name = "TransferOn";
+            TransferOn.ReadOnly = true;
+            // 
+            // Remarks
+            // 
+            Remarks.HeaderText = "Remarks";
+            Remarks.Name = "Remarks";
+            Remarks.ReadOnly = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(25, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(36, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Coop";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(496, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Member";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(23, 243);
+            label3.Name = "label3";
+            label3.Size = new Size(48, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Transfer";
+            // 
+            // buttonRefresh
+            // 
+            buttonRefresh.Location = new Point(439, 453);
+            buttonRefresh.Name = "buttonRefresh";
+            buttonRefresh.Size = new Size(75, 23);
+            buttonRefresh.TabIndex = 6;
+            buttonRefresh.Text = "Refresh";
+            buttonRefresh.UseVisualStyleBackColor = true;
+            buttonRefresh.Click += buttonRefresh_Click;
             // 
             // AcrossPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvBalance);
-            Controls.Add(buttonAcrossPage);
+            Controls.Add(buttonRefresh);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(dgvTransfer);
-            Controls.Add(labelTransferAcrossPage);
-            Controls.Add(labelMemberAcrossPage);
+            Controls.Add(dgvBalance);
             Controls.Add(dgvCoop);
-            Controls.Add(labelCoopAcrossPage);
-            Controls.Add(menuStrip1);
             Name = "AcrossPage";
-            Size = new Size(1118, 649);
+            Size = new Size(921, 492);
             Load += AcrossPage_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCoop).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvBalance).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTransfer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem StripMenuAcrossPage;
-        private ToolStripMenuItem memberToolStripMenuItem;
-        private ToolStripMenuItem accessToolStripMenuItem;
-        private ToolStripMenuItem produkToolStripMenuItem;
-        private ToolStripMenuItem approvalToolStripMenuItem;
-        private ToolStripMenuItem acrossCoorporationToolStripMenuItem;
-        private Label labelCoopAcrossPage;
         private DataGridView dgvCoop;
-        private Label labelMemberAcrossPage;
-        private Label labelTransferAcrossPage;
-        private DataGridView dgvTransfer;
-        private Button buttonAcrossPage;
         private DataGridView dgvBalance;
+        private DataGridView dgvTransfer;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button buttonRefresh;
+        private DataGridViewTextBoxColumn MemberCode;
+        private DataGridViewTextBoxColumn MemberName;
+        private DataGridViewTextBoxColumn Balance;
+        private DataGridViewTextBoxColumn TransferCode;
+        private DataGridViewTextBoxColumn Origin;
+        private DataGridViewTextBoxColumn Benef;
+        private DataGridViewTextBoxColumn Amount;
+        private DataGridViewTextBoxColumn TransferOn;
+        private DataGridViewTextBoxColumn Remarks;
+        private DataGridViewTextBoxColumn CoopCode;
+        private DataGridViewTextBoxColumn CoopName;
+        private DataGridViewTextBoxColumn CoopAddress;
+        private DataGridViewTextBoxColumn IsDelete;
     }
 }

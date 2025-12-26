@@ -1,25 +1,19 @@
 ﻿using Harmoni.Data;
 using Harmoni.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Harmoni.Services
 {
-    class ProductService 
+    public class ProductService
     {
         private AppDbContext _db;
-        public ProductService(AppDbContext db)
-        {
+        public ProductService(AppDbContext db) { 
             _db = db;
         }
 
         public List<LoanMaster> LoadLoanGrid()
         {
-            return _db.LoanMasters.OrderByDescending(x => x.UpdateOn).ToList();
+            return _db.LoanMasters.OrderByDescending(x=> x.UpdateOn).ToList();
         }
 
         public List<SavingMaster> LoadSavingGrid()
@@ -27,8 +21,8 @@ namespace Harmoni.Services
             return _db.SavingMasters.OrderByDescending(x => x.UpdateOn).ToList();
         }
 
-        public async Task saveOrUpdateLoan(string id, string adminFee, string name,
-            string fine, string interest, string maxAmount, string minAmount,
+        public async Task saveOrUpdateLoan(string id, string adminFee, string name, 
+            string fine, string interest, string maxAmount, string minAmount, 
             string tenor)
         {
             LoanMaster? lm = new LoanMaster();
@@ -99,11 +93,11 @@ namespace Harmoni.Services
 
         public object SetDropDownLoan()
         {
-            var data = _db.LoanMasters.OrderBy(x => x.Name)
-                .Select(x => new
+            var data = _db.LoanMasters.OrderBy(x=> x.Name)
+                .Select( x=> new
                 {
                     x.Id,
-                    DisplayName = x.Name + ", t:" + x.Tenor + "(" + x.Interest + ")"
+                    DisplayName = x.Name + ", t:" + x.Tenor + "(" +x.Interest + ")"
                 }).ToList();
 
             var result = new List<object>

@@ -1,5 +1,4 @@
-﻿using Harmoni.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,16 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Harmoni.Data;
+using Harmoni.Models;
 
 namespace Harmoni.Forms.PublicMenus
 {
     public partial class DashboardPage : UserControl
     {
-        Member loggedMember;
+        private Member loggedMember;
         public DashboardPage(Member member)
         {
             loggedMember = member;
             InitializeComponent();
+        }
+
+        private void DashboardPage_Load(object sender, EventArgs e)
+        {
+            AppDbContext db = new AppDbContext();
+
         }
     }
 }

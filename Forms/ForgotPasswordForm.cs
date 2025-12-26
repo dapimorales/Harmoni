@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Harmoni.Data;
-using Harmoni.Forms;
 using Harmoni.Services;
 
-namespace BraveHeroCooperation.Forms
+namespace Harmoni.Forms
 {
     public partial class ForgotPasswordForm : Form
     {

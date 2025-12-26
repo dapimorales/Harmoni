@@ -1,16 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Harmoni.Models
 {
     public class Saving
     {
-        // Id tabungan
         public int Id { get; set; }
         [Required] public int MemberId { get; set; }
         public Member Member { get; set; } = null!;
         [Required] public int SavingId { get; set; }
-        public DateTime SavingDate { get; set; }
+        public DateTime SavingDate {  get; set; }
         public decimal Amount { get; set; }
         public decimal Fine { get; set; }
         public decimal WithdrawAmount { get; set; }
@@ -31,5 +34,6 @@ namespace Harmoni.Models
         public string? KtpPath { get; set; }
         public string? KkPath { get; set; }
         public string? SlipGajiPath { get; set; }
+
     }
 }

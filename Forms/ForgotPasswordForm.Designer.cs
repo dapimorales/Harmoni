@@ -1,4 +1,4 @@
-﻿namespace BraveHeroCooperation.Forms
+﻿namespace Harmoni.Forms
 {
     partial class ForgotPasswordForm
     {

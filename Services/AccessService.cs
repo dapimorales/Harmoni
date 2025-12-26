@@ -33,10 +33,12 @@ namespace Harmoni.Services
                 }).ToList();
             return grid;
         }
+
         public Access? findByMember(int id)
         {
-            return _db.Accesses.FirstOrDefault(x  => x.MemberId == id);
+           return _db.Accesses.FirstOrDefault(x => x.MemberId == id);
         }
+
         public async Task update(Access access, String accessList)
         {
             access.AccessList = accessList;
@@ -44,6 +46,7 @@ namespace Harmoni.Services
             _db.Update(access);
             await _db.SaveChangesAsync();
         }
+
         public async Task newOne(Access? access, Member member, String accessList)
         {
             var a = new Access
@@ -56,6 +59,7 @@ namespace Harmoni.Services
             _db.Add(a);
             await _db.SaveChangesAsync();
         }
+
         public Access? findById(int id)
         {
             return _db.Accesses.FirstOrDefault(x => x.Id == id);

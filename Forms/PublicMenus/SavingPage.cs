@@ -1,25 +1,23 @@
-﻿using System;
+﻿using Harmoni.Data;
+using Harmoni.Models;
+using Harmoni.Services;
+using Harmoni.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BraveHeroCooperation.Utils;
-using Harmoni.Data;
-using Harmoni.Models;
-using Harmoni.Services;
 
-namespace Harmoni.Forms.PublicMenus
+namespace Harmoni.Forms.MemberMenus
 {
     public partial class SavingPage : UserControl
     {
         Member loggedMember;
-
         public SavingPage(Member member)
         {
             loggedMember = member;
@@ -33,7 +31,7 @@ namespace Harmoni.Forms.PublicMenus
 
         private void buttonFileKK_Click(object sender, EventArgs e)
         {
-            txtDocumentKK.Text = FileHelper.UploadDocument("KK");
+            textDocKK.Text = FileHelper.UploadDocument("KK");
         }
 
         private void SavingPage_Load(object sender, EventArgs e)
@@ -54,35 +52,34 @@ namespace Harmoni.Forms.PublicMenus
             comboSavingMaster.DisplayMember = "DisplayName";
             comboSavingMaster.ValueMember = "Id";
         }
-
         private void SetDefaultField()
         {
             comboSavingMaster.SelectedIndex = 0;
-            btnShowKTP.Visible = false;
-            btnShowKK.Visible = false;
-            btnShowSlip.Visible = false;
-            btnBrowseKTP.Visible = true;
-            btnBrowseKK.Visible = true;
-            btnBrowseSlip.Visible = true;
+            buttonShowDocKtp.Visible = false;
+            buttonShowDocKk.Visible = false;
+            buttonShowDocSlip.Visible = false;
+            buttonFileKTP.Visible = true;
+            buttonFileKK.Visible = true;
+            buttonFileSlip.Visible = true;
         }
 
         private void SetChosenField()
         {
-            btnShowKK.Visible = true;
-            btnShowKK.Visible = true;
-            btnShowSlip.Visible = true;
-            btnBrowseKTP.Visible = false;
-            btnBrowseKK.Visible = false;
-            btnBrowseSlip.Visible = false;
+            buttonShowDocKtp.Visible = true;
+            buttonShowDocKk.Visible = true;
+            buttonShowDocSlip.Visible = true;
+            buttonFileKTP.Visible = false;
+            buttonFileKK.Visible = false;
+            buttonFileSlip.Visible = false;
         }
 
         private void ResetField()
         {
-            txtDocumentKK.Text = "";
-            txtDocumentKTP.Text = "";
-            txtDocumentSlip.Text = "";
-            txtDueDate.Text = "";
-            txtAmount.Text = "";
+            textDocKK.Text = "";
+            textDocKtp.Text = "";
+            textDocSlip.Text = "";
+            textDueDate.Text = "";
+            textAmount.Text = "";
             ResetDropDown();
             textLoanId.Text = RandomNumberGenerator.GetString("1234567890", 6);
             labelId.Text = "";
@@ -90,18 +87,18 @@ namespace Harmoni.Forms.PublicMenus
 
         private void ResetDropDown()
         {
-            txtInterest.Text = "";
-            txtInterestFIne.Text = "";
-            txtTenor.Text = "";
-            txtAdminFee.Text = "";
-            txtMinAmount.Text = "";
-            txtMaxAmount.Text = "";
+            textInterest.Text = "";
+            textInterestFine.Text = "";
+            textTenor.Text = "";
+            textAdminFee.Text = "";
+            textMinAmount.Text = "";
+            textMaxAmount.Text = "";
         }
 
         private async void LoadSavingGrid(AppDbContext db)
         {
             SavingService savingService = new SavingService(db);
-            loanBindingSource.DataSource = await savingService.LoadSavingGrid(loggedMe);
+            loanBindingSource.DataSource = await savingService.LoadSavingGrid(loggedMember.Id);
             dataGridViewSaving.Columns[0].DataPropertyName = "Id";
             dataGridViewSaving.Columns[1].DataPropertyName = "SavingId";
             dataGridViewSaving.Columns[2].DataPropertyName = "Amount";
@@ -124,15 +121,14 @@ namespace Harmoni.Forms.PublicMenus
                 AppDbContext db = new AppDbContext();
                 ProductService productService = new ProductService(db);
                 LoanMaster? loanMaster = await productService.findLoanById(idLoanMaster);
-
                 if (loanMaster != null)
                 {
-                    txtInterest.Text = loanMaster.Interest.ToString();
-                    txtInterestFIne.Text = loanMaster.Fine.ToString();
-                    txtTenor.Text = loanMaster.Tenor.ToString();
-                    txtAdminFee.Text = loanMaster.AdminFee.ToString();
-                    txtMinAmount.Text = loanMaster.MinAmount.ToString();
-                    txtMaxAmount.Text = loanMaster.MaxAmount.ToString();
+                    textInterest.Text = loanMaster.Interest.ToString();
+                    textInterestFine.Text = loanMaster.Fine.ToString();
+                    textTenor.Text = loanMaster.Tenor.ToString();
+                    textAdminFee.Text = loanMaster.AdminFee.ToString();
+                    textMinAmount.Text = loanMaster.MinAmount.ToString();
+                    textMaxAmount.Text = loanMaster.MaxAmount.ToString();
                 }
                 else
                 {
@@ -141,64 +137,21 @@ namespace Harmoni.Forms.PublicMenus
             }
         }
 
-        private async void cmbLoanMaster_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonReload_Click(object sender, EventArgs e)
         {
-            if (comboSavingMaster.SelectedIndex == 0)
-                ResetDropDown();
-
-            if (comboSavingMaster.SelectedIndex > 0)
-            {
-                int idLoanMaster = int.Parse(comboSavingMaster.SelectedValue.ToString());
-                AppDbContext db = new AppDbContext();
-                ProductService productService = new ProductService(db);
-                LoanMaster? loanMaster = await productService.findLoanById(idLoanMaster);
-
-                if (loanMaster != null)
-                {
-                    txtInterest.Text = loanMaster.Interest.ToString();
-                    txtInterestFIne.Text = loanMaster.Fine.ToString();
-                    txtTenor.Text = loanMaster.Tenor.ToString();
-                    txtAdminFee.Text = loanMaster.AdminFee.ToString();
-                    txtMinAmount.Text = loanMaster.MinAmount.ToString();
-                    txtMaxAmount.Text = loanMaster.MaxAmount.ToString();
-                }
-                else
-                {
-                    ResetDropDown();
-                }
-            }
+            
         }
 
         private void buttonNewSaving_Click(object sender, EventArgs e)
         {
             SetDefaultField();
             ResetField();
-            btnApplySaving.Enabled = true;
+            buttonApply.Enabled = true;
             comboSavingMaster.SelectedIndex = 0;
             comboSavingMaster.Enabled = true;
         }
 
         private void buttonReload_Click_1(object sender, EventArgs e)
-        {
-            AppDbContext db = new AppDbContext();
-
-            SetSavingDropDown(db);
-            SetDefaultField();
-            ResetField();
-
-            LoadSavingGrid(db);
-        }
-
-        private void btnNewSaving_Click(object sender, EventArgs e)
-        {
-            SetDefaultField();
-            ResetField();
-            btnApplySaving.Enabled = true;
-            comboSavingMaster.SelectedIndex = 0;
-            comboSavingMaster.Enabled = true;
-        }
-
-        private void btnReload_Click_1(object sender, EventArgs e)
         {
             AppDbContext db = new AppDbContext();
 

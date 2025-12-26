@@ -1,5 +1,5 @@
-﻿using Harmoni.API.Connectors;
-using Harmoni.API.Models;
+﻿using Harmoni.Api.Connectors;
+using Harmoni.Api.Models;
 using Harmoni.Data;
 using Harmoni.Models;
 using Harmoni.Services;
@@ -22,9 +22,9 @@ namespace Harmoni.Forms.AdminMenus
             InitializeComponent();
         }
 
-        private void labelMemberAcrossPage_Click(object sender, EventArgs e)
+        private void buttonRefresh_Click(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
         private async void AcrossPage_Load(object sender, EventArgs e)
@@ -32,30 +32,30 @@ namespace Harmoni.Forms.AdminMenus
             String message = "";
             AppDbContext db = new AppDbContext();
             ConnectorPost connectorPost = new ConnectorPost();
-            ConfigurationServices configurationService = new ConfigurationServices(db);
+            ConfigurationService configurationService = new ConfigurationService(db);
             Configuration? configuration = await configurationService.GetConfig();
             if (configuration == null)
                 message = "Configuration not found!";
 
-            if (configuration != null) {
+            if (configuration != null)
+            {
                 if (configuration.terminologi3 == null || configuration.terminologi3 == "-")
                 {
-                    DialogResult result = MessageBox.Show("Not registered yet. Register Now!",
-                    "Regist Accross", MessageBoxButtons.OK);
-
+                    DialogResult result = MessageBox.Show("Not registered yet. Register Now!", 
+                        "Regist Accross", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     if (result == DialogResult.OK)
                     {
                         CoopApiResponse? coopApiResponse = await connectorPost.CoopRegistrationAsync(
-                            new CoopPayload
-                            {
-                                name = "Harmoni",
-                                address = "Siberia",
+                            new CoopPayload {
+                                name = "Koperasi BadBoy",
+                                address = "Tangerang",
                                 code = ""
                             });
+
                         if (coopApiResponse != null && coopApiResponse.CoopCode != null)
                         {
                             configuration.terminologi3 = coopApiResponse.CoopCode;
-                            configurationService.update(configuration);
+                            configurationService.Update(configuration);
 
                             LoadData();
                         }
@@ -70,99 +70,67 @@ namespace Harmoni.Forms.AdminMenus
                     LoadData();
                 }
             }
+                
         }
-    
-
-
-        private async void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async Task LoadData()
+        private async void LoadData()
         {
             AppDbContext appDbContext = new AppDbContext();
-            ConfigurationServices configurationService = new ConfigurationServices(appDbContext);
-            Configuration configuration = await configurationService.GetConfig();
+            ConfigurationService configurationService = new ConfigurationService(
+                appDbContext);
+            Configuration? configuration = await configurationService.GetConfig();
+            String message = "";
 
-            string message = "";
-
-            // ======================
-            // GET COOP LIST
-            // ======================
             ConnectorGet connectorGet = new ConnectorGet();
             CoopApiResponse? coopApiResponse = await connectorGet.GetCoopAsync();
-
             if (coopApiResponse != null && coopApiResponse.ResponseCode == "00")
             {
                 dgvCoop.Rows.Clear();
                 foreach (var coop in coopApiResponse.CoopList)
                 {
-                    dgvCoop.Rows.Add(coop.Code, coop.Name, coop.Address);
+                    dgvCoop.Rows.Add(coop.Code, coop.Name, coop.Address, coop.isDelete);
                 }
             }
             else
             {
-                message = coopApiResponse != null
-                    ? coopApiResponse.ResponseCode + " - " + coopApiResponse.ResponseMessage
-                    : "Did not get Coop data";
+                message = coopApiResponse != null ? coopApiResponse.ResponseCode + " - " 
+                    + coopApiResponse.ResponseMessage : "Did not get data";
             }
 
-            // ======================
-            // GET BALANCE LIST
-            // ======================
-            BalanceApiResponse? balanceApiResponse =
-                await connectorGet.GetBalancesByCoopAsync(configuration.terminologi3);
-
+            BalanceApiResponse? balanceApiResponse = await connectorGet
+                .GetBalancesByCoopAsync(configuration.terminologi3);
             if (balanceApiResponse != null && balanceApiResponse.ResponseCode == "00")
             {
                 dgvBalance.Rows.Clear();
-                foreach (var bal in balanceApiResponse.balanceList)
+                foreach (var balance in balanceApiResponse.BalanceList)
                 {
-                    dgvBalance.Rows.Add(bal.Member.Code, bal.Member.Name, bal.Amount);
+                    dgvBalance.Rows.Add(balance.Member.Code, balance.Member.Name, balance.Amount);
                 }
             }
-            else
-            {
-                message = balanceApiResponse != null
-                    ? balanceApiResponse.ResponseCode + " - " + balanceApiResponse.ResponseMessage
-                    : "Did not get Balance data";
-            }
+            //else
+            //{
+            //    message = balanceApiResponse != null ? balanceApiResponse
+            //        .ResponseCode + " -" 
+            //        + balanceApiResponse.ResponseMessage : "Did not get data";
+            //}
 
-            // ======================
-            // GET TRANSFER LIST
-            // ======================
-            TransferApiResponse? transferApiResponse =
-                await connectorGet.GetTransfersByCoopAsync(configuration.terminologi3);
-
+            TransferApiResponse? transferApiResponse = await connectorGet.GetTransfersByCoopAsync(configuration.terminologi3);
             if (transferApiResponse != null && transferApiResponse.ResponseCode == "00")
             {
                 dgvTransfer.Rows.Clear();
                 foreach (var transfer in transferApiResponse.TransferList)
                 {
-                    dgvTransfer.Rows.Add(
-                        transfer.Code,
-                        transfer.CoopCode,
-                        transfer.CodeOrigin,
-                        transfer.CodeBenef,
-                        transfer.Amount,
-                        transfer.Remaks
-                    );
+                    dgvTransfer.Rows.Add(transfer.Code, transfer.CoopCode, transfer.CodeOrigin, transfer.CodeBenef, transfer.Amount, transfer.Remarks);
                 }
             }
-            else
-            {
-                message = transferApiResponse != null
-                    ? transferApiResponse.ResponseCode + " - " + transferApiResponse.ResponseMessage
-                    : "Did not get Transfer data";
-            }
+            //else
+            //{
+            //    message = transferApiResponse != null ? transferApiResponse.ResponseCode + " -" 
+            //        + transferApiResponse.ResponseMessage : "Did not get data";
+            //}
 
-            // ======================
-            // SHOW ERROR IF ANY
-            // ======================
             if (message != "")
             {
-                MessageBox.Show("Failed to load data from API.\nError: " + message);
+                MessageBox.Show("Failed to load data from API.\n Error:" + message);
             }
         }
     }
