@@ -27,7 +27,7 @@ namespace Harmoni.Forms.MemberMenus
         private async void AcrossTransferPage_Load(object sender, EventArgs e)
         {
             timerInbox.Enabled = false;
-            if (loggedMember.ReferenceId == null || loggedMember.ReferenceId == "" || loggedMember.ReferenceId == "-")
+            if (loggedMember.Referenceld == null || loggedMember.Referenceld == "" || loggedMember.Referenceld == "-")
             {
                 DialogResult result = MessageBox.Show(
                     "You do not have a privilege to Use Across Transfer. Registration Now?", 
@@ -78,7 +78,7 @@ namespace Harmoni.Forms.MemberMenus
 
                     if (memberApiResponse != null && memberApiResponse.ResponseCode == "00")
                     {
-                        loggedMember.ReferenceId = configuration.terminologi3!;
+                        loggedMember.Referenceld = configuration.terminologi3!;
                         memberService.Update(loggedMember);
 
                         BalanceService balanceService = new BalanceService(db);
@@ -112,7 +112,7 @@ namespace Harmoni.Forms.MemberMenus
             {
                 amount = transferAmount,
                 benefCode = textBenef.Text,
-                coopCode = loggedMember.ReferenceId,
+                coopCode = loggedMember.Referenceld,
                 memberCode = loggedMember.MemberId,
                 fee = Double.Parse(config?.transferAcrossFee.ToString()),
                 remarks = textRemarks.Text,
@@ -169,7 +169,7 @@ namespace Harmoni.Forms.MemberMenus
                     dgvOutgoing.Columns["Remarks"].HeaderText = "Remarks";
                     dgvOutgoing.Columns["TransactionCode"].HeaderText = "Transaction Code";
                 }
-                String benefCode = loggedMember.ReferenceId + "-" + loggedMember.MemberId;
+                String benefCode = loggedMember.Referenceld + "-" + loggedMember.MemberId;
                 TransferApiResponse? responseIncoming = await connectorGet.GetIncomingByMemberAsync(loggedMember.MemberId);
                 if (responseIncoming != null && responseIncoming.ResponseCode == "00")
                 {
@@ -199,7 +199,7 @@ namespace Harmoni.Forms.MemberMenus
 
         private String loadMyBenef()
         {
-            return loggedMember.ReferenceId + "-" + loggedMember.MemberId;
+            return loggedMember.Referenceld + "-" + loggedMember.MemberId;
         }
     }
 }

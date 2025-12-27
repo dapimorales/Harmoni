@@ -26,9 +26,9 @@ namespace Harmoni.Forms
         {
             using var db = new AppDbContext();
             var auth = new AuthService(db);
-            var member = auth.RegisterAsync(textAddress.Text, textCardId.Text, 
-                textEmail.Text, textFullname.Text, textPassword.Text, 
-                textPhone.Text, textPhoneAlt.Text, textReferenceId.Text, 
+            var member = auth.RegisterAsync(textAddress.Text, textCardId.Text,
+                textEmail.Text, textFullname.Text, textPassword.Text,
+                textPhone.Text, textPhoneAlt.Text, textReferenceId.Text,
                 textUsername.Text, textQuest1.Text, textQuest2.Text);
             if (member != null)
             {
@@ -36,7 +36,8 @@ namespace Harmoni.Forms
                 LoginForm loginForm = new LoginForm();
                 loginForm.setSuccessAlert("Registration Success! Please Login...");
                 loginForm.ShowDialog();
-            } else
+            }
+            else
             {
                 labelError.Text = "Registration Failed!";
                 labelError.Visible = true;
@@ -48,6 +49,11 @@ namespace Harmoni.Forms
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
+        }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

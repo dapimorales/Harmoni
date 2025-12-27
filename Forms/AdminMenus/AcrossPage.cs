@@ -47,7 +47,7 @@ namespace Harmoni.Forms.AdminMenus
                     {
                         CoopApiResponse? coopApiResponse = await connectorPost.CoopRegistrationAsync(
                             new CoopPayload {
-                                name = "Koperasi BadBoy",
+                                name = "Terminal Harmoni",
                                 address = "Tangerang",
                                 code = ""
                             });

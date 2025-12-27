@@ -51,7 +51,7 @@ namespace Harmoni.Services
                 Phone = phone,
                 PhoneAlt = phoneAlt,
                 IdCard = cardId,
-                ReferenceId = referenceId,
+                Referenceld = referenceId,
                 level = "public", // hardcode
                 IsActive = true,
                 Status = "public",

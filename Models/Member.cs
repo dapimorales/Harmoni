@@ -23,7 +23,7 @@ namespace Harmoni.Models
         public string PhoneAlt {  get; set; }
         public DateTime ModDate{get; set;}
         public string Status { get; set; }
-        public string ReferenceId { get; set; }
+        public string Referenceld { get; set; }
         public string level { get; set; }
 
         [Required, MaxLength(100)] public string quest1 { get; set; } = null!;

@@ -40,7 +40,7 @@ namespace Harmoni.Services
         public async Task Update(Balance balance)
         {
             _db.Balances.Update(balance);
-            await _db.SaveChangesAsync();
+            _db.SaveChanges();
         }
     }
 }
