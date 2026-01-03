@@ -71,7 +71,7 @@ namespace Harmoni.Forms.AdminMenus
                 List<Member> requestAcrossList = new List<Member>();
                 for (int i = 0; i < members.Count; i++)
                 {
-                    if (members[i].ReferenceId == "REQ")
+                    if (members[i].Referenceld == "REQ")
                     {
                         requestAcrossList.Add(members[i]);
                     }
@@ -80,7 +80,7 @@ namespace Harmoni.Forms.AdminMenus
                 dataGridViewApproval.Columns[0].DataPropertyName = "Id";
                 dataGridViewApproval.Columns[1].DataPropertyName = "FullName";
                 dataGridViewApproval.Columns[2].DataPropertyName = "MemberId";
-                dataGridViewApproval.Columns[3].DataPropertyName = "ReferenceId";
+                dataGridViewApproval.Columns[3].DataPropertyName = "Referenceld";
 
                 dataGridViewApproval.Columns[0].Visible = false;
                 dataGridViewApproval.Columns[1].HeaderText = "Full Name";
@@ -137,7 +137,7 @@ namespace Harmoni.Forms.AdminMenus
                         String message = "";
                         MemberService memberService = new MemberService(db);
                         Member? member = memberService.FindById(int.Parse(dataGridViewApproval.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                        if (member == null || member.ReferenceId != "REQ")
+                        if (member == null || member.Referenceld != "REQ")
                         {
                             message = "Member not found or already registered!";
                         }
@@ -181,7 +181,7 @@ namespace Harmoni.Forms.AdminMenus
 
                                 if (memberApiResponse != null && memberApiResponse.ResponseCode == "00")
                                 {
-                                    member.ReferenceId = configuration.terminologi3;
+                                    member.Referenceld = configuration.terminologi3;
                                     memberService.Update(member);
 
                                     BalanceService balanceService = new BalanceService(db);

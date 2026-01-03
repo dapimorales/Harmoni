@@ -10,7 +10,7 @@ namespace Harmoni.Forms
         {
             loggedMember = member; // admin
             InitializeComponent();
-            this.Text = "Terminal Harmoni (Administrator: " +
+            this.Text = "Brave Hero Cooperation (Administrator: " +
                 loggedMember.MemberId + " - " + loggedMember.FullName + ")";
         }
 

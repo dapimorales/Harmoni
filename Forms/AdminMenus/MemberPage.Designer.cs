@@ -278,8 +278,8 @@
             // 
             // referenceIdDataGridViewTextBoxColumn
             // 
-            referenceIdDataGridViewTextBoxColumn.DataPropertyName = "ReferenceId";
-            referenceIdDataGridViewTextBoxColumn.HeaderText = "ReferenceId";
+            referenceIdDataGridViewTextBoxColumn.DataPropertyName = "Referenceld";
+            referenceIdDataGridViewTextBoxColumn.HeaderText = "Referenceld";
             referenceIdDataGridViewTextBoxColumn.Name = "referenceIdDataGridViewTextBoxColumn";
             referenceIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
