@@ -323,7 +323,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PapayaWhip;
+            BackColor = SystemColors.Control;
             Controls.Add(buttonSubmit);
             Controls.Add(groupBox1);
             Controls.Add(label2);
