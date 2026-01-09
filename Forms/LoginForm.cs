@@ -32,7 +32,8 @@ namespace Harmoni.Forms
                     this.Hide(); // this = form login
                     AdminForm form = new AdminForm(LoggedInUser);
                     form.ShowDialog();
-                } else
+                }
+                else
                 {
                     AccessService accessService = new AccessService(db);
                     Access access = await accessService.GetAccess(user.Id);
@@ -48,7 +49,7 @@ namespace Harmoni.Forms
                         HomeForm form = new HomeForm(LoggedInUser);
                         form.ShowDialog();
                     }
-                }       
+                }
             }
             else
             {
@@ -70,6 +71,11 @@ namespace Harmoni.Forms
             this.Hide();
             RegistrationForm form = new RegistrationForm();
             form.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
