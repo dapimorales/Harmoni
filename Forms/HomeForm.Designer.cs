@@ -155,6 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Khaki;
             ClientSize = new Size(1143, 750);
             Controls.Add(panelDisplay);
             Controls.Add(menuHome);
