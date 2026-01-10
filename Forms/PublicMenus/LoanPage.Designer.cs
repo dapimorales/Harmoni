@@ -99,9 +99,11 @@
             dataGridViewLoan.AllowUserToAddRows = false;
             dataGridViewLoan.AllowUserToDeleteRows = false;
             dataGridViewLoan.AutoGenerateColumns = false;
+            dataGridViewLoan.BackgroundColor = Color.DarkKhaki;
             dataGridViewLoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewLoan.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn1, LoanId, outstanding, tenorLeft, Fine });
             dataGridViewLoan.DataSource = loanBindingSource;
+            dataGridViewLoan.GridColor = Color.Cornsilk;
             dataGridViewLoan.Location = new Point(663, 70);
             dataGridViewLoan.Margin = new Padding(4, 5, 4, 5);
             dataGridViewLoan.Name = "dataGridViewLoan";

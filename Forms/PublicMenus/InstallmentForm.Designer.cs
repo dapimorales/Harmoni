@@ -64,9 +64,11 @@
             dataGridViewInstallment.AllowUserToAddRows = false;
             dataGridViewInstallment.AllowUserToDeleteRows = false;
             dataGridViewInstallment.AutoGenerateColumns = false;
+            dataGridViewInstallment.BackgroundColor = Color.DarkKhaki;
             dataGridViewInstallment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInstallment.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, paymentDateDataGridViewTextBoxColumn, proofPathDataGridViewTextBoxColumn });
             dataGridViewInstallment.DataSource = installmentBindingSource;
+            dataGridViewInstallment.GridColor = Color.Cornsilk;
             dataGridViewInstallment.Location = new Point(3, 3);
             dataGridViewInstallment.Margin = new Padding(4, 5, 4, 5);
             dataGridViewInstallment.Name = "dataGridViewInstallment";

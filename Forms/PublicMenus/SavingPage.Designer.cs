@@ -488,9 +488,11 @@
             dataGridViewSaving.AllowUserToAddRows = false;
             dataGridViewSaving.AllowUserToDeleteRows = false;
             dataGridViewSaving.AutoGenerateColumns = false;
+            dataGridViewSaving.BackgroundColor = Color.DarkKhaki;
             dataGridViewSaving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewSaving.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn1, LoanId, outstanding, tenorLeft, Fine });
             dataGridViewSaving.DataSource = loanBindingSource;
+            dataGridViewSaving.GridColor = Color.Cornsilk;
             dataGridViewSaving.Location = new Point(661, 66);
             dataGridViewSaving.Margin = new Padding(4, 5, 4, 5);
             dataGridViewSaving.Name = "dataGridViewSaving";

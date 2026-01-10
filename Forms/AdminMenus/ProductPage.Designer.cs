@@ -73,9 +73,11 @@
             dataGridViewLoan.AllowUserToAddRows = false;
             dataGridViewLoan.AllowUserToDeleteRows = false;
             dataGridViewLoan.AutoGenerateColumns = false;
+            dataGridViewLoan.BackgroundColor = Color.DarkKhaki;
             dataGridViewLoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewLoan.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, interestDataGridViewTextBoxColumn, tenorDataGridViewTextBoxColumn });
             dataGridViewLoan.DataSource = loanMasterBindingSource;
+            dataGridViewLoan.GridColor = Color.Cornsilk;
             dataGridViewLoan.Location = new Point(19, 303);
             dataGridViewLoan.Margin = new Padding(4, 5, 4, 5);
             dataGridViewLoan.Name = "dataGridViewLoan";
@@ -130,9 +132,11 @@
             dataGridViewSaving.AllowUserToAddRows = false;
             dataGridViewSaving.AllowUserToDeleteRows = false;
             dataGridViewSaving.AutoGenerateColumns = false;
+            dataGridViewSaving.BackgroundColor = Color.DarkKhaki;
             dataGridViewSaving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewSaving.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn1, nameDataGridViewTextBoxColumn1, interestDataGridViewTextBoxColumn1, tenorDataGridViewTextBoxColumn1 });
             dataGridViewSaving.DataSource = savingMasterBindingSource;
+            dataGridViewSaving.GridColor = Color.Cornsilk;
             dataGridViewSaving.Location = new Point(563, 303);
             dataGridViewSaving.Margin = new Padding(4, 5, 4, 5);
             dataGridViewSaving.Name = "dataGridViewSaving";

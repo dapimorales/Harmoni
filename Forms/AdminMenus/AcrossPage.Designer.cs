@@ -57,8 +57,10 @@
             // 
             dgvCoop.AllowUserToAddRows = false;
             dgvCoop.AllowUserToDeleteRows = false;
+            dgvCoop.BackgroundColor = Color.DarkKhaki;
             dgvCoop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCoop.Columns.AddRange(new DataGridViewColumn[] { CoopCode, CoopName, CoopAddress, IsDelete });
+            dgvCoop.GridColor = Color.Cornsilk;
             dgvCoop.Location = new Point(33, 62);
             dgvCoop.Margin = new Padding(4, 5, 4, 5);
             dgvCoop.Name = "dgvCoop";
@@ -103,8 +105,10 @@
             // 
             dgvBalance.AllowUserToAddRows = false;
             dgvBalance.AllowUserToDeleteRows = false;
+            dgvBalance.BackgroundColor = Color.DarkKhaki;
             dgvBalance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBalance.Columns.AddRange(new DataGridViewColumn[] { MemberCode, MemberName, Balance });
+            dgvBalance.GridColor = Color.Cornsilk;
             dgvBalance.Location = new Point(709, 62);
             dgvBalance.Margin = new Padding(4, 5, 4, 5);
             dgvBalance.Name = "dgvBalance";
@@ -141,8 +145,10 @@
             // 
             dgvTransfer.AllowUserToAddRows = false;
             dgvTransfer.AllowUserToDeleteRows = false;
+            dgvTransfer.BackgroundColor = Color.DarkKhaki;
             dgvTransfer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransfer.Columns.AddRange(new DataGridViewColumn[] { TransferCode, Origin, Benef, Amount, TransferOn, Remarks });
+            dgvTransfer.GridColor = Color.Cornsilk;
             dgvTransfer.Location = new Point(33, 435);
             dgvTransfer.Margin = new Padding(4, 5, 4, 5);
             dgvTransfer.Name = "dgvTransfer";

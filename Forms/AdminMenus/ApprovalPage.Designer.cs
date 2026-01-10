@@ -59,6 +59,7 @@
             // 
             dataGridViewApproval.AllowUserToAddRows = false;
             dataGridViewApproval.AllowUserToDeleteRows = false;
+            dataGridViewApproval.BackgroundColor = Color.DarkKhaki;
             dataGridViewApproval.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewApproval.Location = new Point(20, 135);
             dataGridViewApproval.Margin = new Padding(4, 5, 4, 5);

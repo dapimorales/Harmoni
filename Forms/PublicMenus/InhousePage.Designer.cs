@@ -76,7 +76,9 @@
             // 
             dgvOutgoing.AllowUserToAddRows = false;
             dgvOutgoing.AllowUserToDeleteRows = false;
+            dgvOutgoing.BackgroundColor = Color.DarkKhaki;
             dgvOutgoing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOutgoing.GridColor = Color.Cornsilk;
             dgvOutgoing.Location = new Point(384, 372);
             dgvOutgoing.Margin = new Padding(4, 5, 4, 5);
             dgvOutgoing.Name = "dgvOutgoing";
@@ -99,7 +101,9 @@
             // 
             dgvIncoming.AllowUserToAddRows = false;
             dgvIncoming.AllowUserToDeleteRows = false;
+            dgvIncoming.BackgroundColor = Color.DarkKhaki;
             dgvIncoming.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvIncoming.GridColor = Color.Cornsilk;
             dgvIncoming.Location = new Point(384, 67);
             dgvIncoming.Margin = new Padding(4, 5, 4, 5);
             dgvIncoming.Name = "dgvIncoming";

@@ -66,9 +66,11 @@
             dataGridViewAccess.AllowUserToDeleteRows = false;
             dataGridViewAccess.AllowUserToOrderColumns = true;
             dataGridViewAccess.AutoGenerateColumns = false;
+            dataGridViewAccess.BackgroundColor = Color.DarkKhaki;
             dataGridViewAccess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewAccess.Columns.AddRange(new DataGridViewColumn[] { Id, memberDataGridViewTextBoxColumn, accessListDataGridViewTextBoxColumn, updateOnDataGridViewTextBoxColumn });
             dataGridViewAccess.DataSource = accessBindingSource;
+            dataGridViewAccess.GridColor = Color.Cornsilk;
             dataGridViewAccess.Location = new Point(379, 63);
             dataGridViewAccess.Margin = new Padding(4, 5, 4, 5);
             dataGridViewAccess.Name = "dataGridViewAccess";

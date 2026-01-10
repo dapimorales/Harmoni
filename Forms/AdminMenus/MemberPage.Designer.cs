@@ -256,9 +256,11 @@
             dataGridViewMember.AllowUserToAddRows = false;
             dataGridViewMember.AllowUserToDeleteRows = false;
             dataGridViewMember.AutoGenerateColumns = false;
+            dataGridViewMember.BackgroundColor = Color.DarkKhaki;
             dataGridViewMember.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMember.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, memberIdDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, modDateDataGridViewTextBoxColumn, referenceIdDataGridViewTextBoxColumn });
             dataGridViewMember.DataSource = memberBindingSource;
+            dataGridViewMember.GridColor = Color.Cornsilk;
             dataGridViewMember.Location = new Point(369, 30);
             dataGridViewMember.Margin = new Padding(4, 5, 4, 5);
             dataGridViewMember.Name = "dataGridViewMember";
